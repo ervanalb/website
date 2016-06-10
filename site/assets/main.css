@@ -1,0 +1,45 @@
+body {
+    margin: 6em auto;
+    max-width: 40em;
+    line-height: 1.6;
+    font-size: 1em;
+    color: #333;
+    background-color: #eee;
+    padding: 0 0.8em;
+}
+
+.title {
+    font-size: 2em;
+    color: #700;
+}
+
+h1 {
+    font-size: 1.7em;
+    line-height: 1.2;
+}
+
+h2, h3 {
+    line-height: 1.2;
+}
+
+a {
+    color: #55f;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    color: #f55;
+}
+
+a:visited {
+    color: #707;
+}
+
+code {
+    padding: 0.3em 0.5em;
+    background-color: #ccc;
+}

@@ -11,6 +11,6 @@ This is some `code`
 This is a chunk of code
 ```
 
-## Links
+### Links
 
 [This link](subdir/subpage.html)
