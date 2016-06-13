@@ -1,5 +1,5 @@
 body {
-    margin: 6em auto;
+    margin: 3em auto;
     max-width: 40em;
     line-height: 1.6;
     font-size: 1em;
@@ -8,9 +8,28 @@ body {
     padding: 0 0.8em;
 }
 
+.website_title {
+    font-size: 2.5em;
+    line-height: 1;
+    text-align: center;
+}
+
+.navbar {
+    text-align: center;    
+    line-height: 1;
+}
+
+.navbar li {
+    display: inline;
+    padding: 0 0.5em;
+}
+
+.header {
+    border-bottom: thin solid #700;
+}
+
 .title {
     font-size: 2em;
-    color: #700;
 }
 
 h1 {

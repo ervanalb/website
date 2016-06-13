@@ -16,7 +16,9 @@ PFLAGS = --template $(INC_DIR)/template.html
 # Targets
 all: $(HTML)
 clean:
-	find $(DST_DIR)/* -maxdepth 0 '(' -name assets -o -name .gitignore ')' -prune -o -exec rm -rf '{}' +
+	find $(DST_DIR)/* -maxdepth 0 '(' -name assets -o -name .gitignore -o -name media ')' -prune -o -exec rm -rf '{}' +
 $(DST_DIR)/%.html: $(SRC_DIR)/%.md $(INCLUDES)
 	@mkdir -p $(dir $@)
 	pandoc $(PFLAGS) -o $@ $<
+test: $(HTML)
+	cd site; python -m http.server

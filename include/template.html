@@ -13,13 +13,21 @@ $endif$
 $if(keywords)$
   <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
 $endif$
-  <title>$pagetitle$ – Eric's Site</title>
+  <title>$pagetitle$ – Baseline Competent</title>
   <link rel="stylesheet" href="/assets/main.css" type="text/css" />
 $if(math)$
   $math$
 $endif$
 </head>
 <body>
+<div class="header">
+  <h1 class="website_title">Baseline Competent</h1>
+  <ul class="navbar">
+    <li><a href="/">Home</a></li>
+    <li><a href="/projects.html">Projects</a></li>
+    <li><a href="/about.html">About</a></li>
+  </ul>
+</div>
 <div id="$idprefix$header">
 <h1 class="title">$title$</h1>
 $if(subtitle)$
