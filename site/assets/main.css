@@ -61,7 +61,25 @@ a:visited {
 code {
     padding: 0.3em 0.5em;
     background-color: #ccc;
+    display: inline-block;
 }
+
+/* Based on https://github.com/jeffbr13/benjeffrey.com/blob/master/posts/pandoc-syntax-highlighting-css.md */
+.sourceCode .kw { color: #970; }
+.sourceCode .dt { color: #970; }
+.sourceCode .cf { color: #970; }
+.sourceCode .im { color: #009; }
+.sourceCode .dv, .sourceCode .bn, .sourceCode .fl { color: #909; }
+.sourceCode .ch { color: #909; }
+.sourceCode .st { color: #909; }
+.sourceCode .co { color: #07F; }
+.sourceCode .ot { color: #07F; }
+.sourceCode .bu { color: #07F; }
+.sourceCode .al { color: #909; font-weight: bold; }
+.sourceCode .fu { color: #909; }
+.sourceCode .re { }
+.sourceCode .op { }
+.sourceCode .er { color: #909; font-weight: bold; }
 
 .figure {
     border: thin solid #700;
