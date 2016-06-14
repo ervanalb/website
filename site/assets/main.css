@@ -6,6 +6,7 @@ body {
     color: #333;
     background-color: #eee;
     padding: 0 0.8em;
+    text-align: center;
 }
 
 .website_title {
@@ -15,8 +16,8 @@ body {
 }
 
 .navbar {
-    text-align: center;    
     line-height: 1;
+    text-align: center;
 }
 
 .navbar li {
@@ -35,10 +36,16 @@ body {
 h1 {
     font-size: 1.7em;
     line-height: 1.2;
+    text-align: left;
 }
 
 h2, h3 {
     line-height: 1.2;
+    text-align: left;
+}
+
+p, ul, ol, li {
+    text-align: left;
 }
 
 a {
@@ -84,10 +91,9 @@ code {
 .figure {
     border: thin solid #700;
     padding: 0.5em;
-    display: block;
+    display: inline-block;
     background-color: #ccc;
     margin: 1em auto;
-    width: 320px;
     text-align: center;
 }
 
@@ -97,6 +103,10 @@ code {
 }
 
 .figure img {
-    max-width: 320px;
-    max-height: 320px;
+    max-width: 45em;
+    max-height: 45em;
+}
+
+.album {
+    text-align: center;
 }
