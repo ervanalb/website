@@ -28,7 +28,7 @@ $(DST_DIR)/%.html: $(SRC_DIR)/%.md $(INCLUDES)
 	@mkdir -p $(dir $@)
 	pandoc $(PFLAGS) -o $@ $<
 $(MEDIA_DIR)/%_thumb.jpg: $(MEDIA_DIR)/%.jpg
-	convert $< -thumbnail 320x320\> $@
+	convert $< -auto-orient -thumbnail 320x320\> $@
 test: $(HTML)
 	cd site; python -m http.server
 s3: $(MEDIA)
