@@ -16,9 +16,9 @@ def process(fn):
     thumb_fn = full_fn
     if thumb_fn.endswith(".jpg"):
         thumb_fn = thumb_fn[:-4] + "_thumb.jpg"
-    return (full_fn, thumb_fn, str(tags["EXIF DateTimeOriginal"]))
+    return (full_fn, thumb_fn, str(tags.get("EXIF DateTimeOriginal","")))
 
-photos = [process(fn) for fn in filenames]
+photos = [process(fn) for fn in filenames if not fn.endswith("_thumb.jpg")]
 photos.sort(key=lambda x: x[2])
 
 for (web_fn, thumb_fn, _) in photos:
