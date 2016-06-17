@@ -1,6 +1,6 @@
 % About
 
-I'm Eric Van Albert. You can email me by replacing the first dot in this URL with @
+I'm Eric Van Albert. You can email me by replacing the first dot in this domain with @
 
 I live in Massachusetts near Boston. I work at [Formlabs](http://formlabs.com/).
 
