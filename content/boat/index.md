@@ -41,6 +41,8 @@ Here are some pictures of a boat trip I took with Adrian and Larissa (and Adrian
 ## Rev 1 / Construction
 
 <p class="images">
+[![](/media/boat/laser.gif)](/media/boat/laser.gif "Laser-cutting the bucket holders")
+[![](/media/boat/lathe.gif)](/media/boat/lathe.gif "Turning down a PVC fitting")
 [![](/media/boat/assembling_bucket_holders_thumb.jpg)](/media/boat/assembling_bucket_holders.jpg "These pieces were laser-cut but need to be glued together")
 [![](/media/boat/bucket_holders_thumb.jpg)](/media/boat/bucket_holders.jpg "The stack of finished bucket holders")
 [![](/media/boat/webbing_strap_thumb.jpg)](/media/boat/webbing_strap.jpg "Original idea for holding on buckets was to use webbing straps")
