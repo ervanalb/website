@@ -2,3 +2,4 @@
 
 * [Lights](lights)
 * [Boat](boat)
+* [Furniture](furniture)
