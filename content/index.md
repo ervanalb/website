@@ -1,10 +1,9 @@
 % Homepage
-# Welcome to my website
 
-I'm just doing some testing right now.
+## Recently updated ##
 
-Recently updated:
-
+* [Physical Security](physec)
+* [lens](lens)
 * [Second Floor](second_floor)
 * [Furniture](furniture)
 * [Lights](lights)
