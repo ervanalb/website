@@ -25,12 +25,13 @@ I don't think of myself as a carpenter or even someone particularly skilled at w
 
 ### Kingsman Cabinet
 
-This is still a work in progress. It is going to hold all of my gear (climbing things, skydiving things.) Inspired by the movie [Kingsman](http://www.moviechambers.com/wp-content/uploads/2015/02/Kingsman-The-Secret-Service.jpg).
+This is still a work in progress. It is going to hold all of my gear (climbing things, [skydiving](/skydiving) things.) Inspired by the movie [Kingsman](http://www.moviechambers.com/wp-content/uploads/2015/02/Kingsman-The-Secret-Service.jpg).
 
 <p class="images">
 [![](/media/furniture/cabinet_first_piece_thumb.jpg)](/media/furniture/cabinet_first_piece.jpg "Gluing on the first piece")
 [![](/media/furniture/crazy_clamping_thumb.jpg)](/media/furniture/crazy_clamping.jpg "I need to get more clamps")
 [![](/media/furniture/cabinet_half_glued_thumb.jpg)](/media/furniture/cabinet_half_glued.jpg "Half of the cabinet")
+[![](/media/furniture/cabinet_stained_thumb.jpg)](/media/furniture/cabinet_stained.jpg "Stained")
 </p>
 
 ## Round 1 (2014)
