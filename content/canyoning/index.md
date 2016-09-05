@@ -26,7 +26,6 @@ There aren't many pictures because I was using my phone, which is not waterproof
 [![](/media/canyoning/sabrina_maya_becca_thumb.jpg)](/media/canyoning/sabrina_maya_becca.jpg "Sabrina, Maya, Becca")
 [![](/media/canyoning/zbanks_thumb.jpg)](/media/canyoning/zbanks.jpg "zbanks")
 [![](/media/canyoning/thumbs_up.gif)](/media/canyoning/thumbs_up.gif "Thumbs up")
-[![](/media/canyoning/zbanks_maya_thumb.jpg)](/media/canyoning/zbanks_maya.jpg "Zach and Maya chilling in the pool")
 [![](/media/canyoning/sadun_waterfall.gif)](/media/canyoning/sadun_waterfall.gif "Sadun descending a waterfall")
 [![](/media/canyoning/vicki_waterfall.gif)](/media/canyoning/vicki_waterfall.gif "Vicki descending a waterfall")
 [![](/media/canyoning/graceful.gif)](/media/canyoning/graceful.gif "Crystal being graceful")
@@ -41,4 +40,5 @@ There aren't many pictures because I was using my phone, which is not waterproof
 [![](/media/canyoning/teacups_thumb.jpg)](/media/canyoning/teacups.jpg "7 Teacups")
 [![](/media/canyoning/maya_jump_teacups.gif)](/media/canyoning/maya_jump_teacups.gif "Maya jumping (7 teacups)")
 [![](/media/canyoning/zbanks_jump_teacups.gif)](/media/canyoning/zbanks_jump_teacups.gif "Zach jumping (7 teacups)")
+[![](/media/canyoning/zbanks_maya_thumb.jpg)](/media/canyoning/zbanks_maya.jpg "Zach and Maya chilling in the pool")
 
