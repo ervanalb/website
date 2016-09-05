@@ -12,10 +12,19 @@ I graduated MIT in 2014. I lived in [EC](http://eastcamp.us/) ([Tetazoo](http://
 <p class="images">
 [![](/media/about/lockpicking_thumb.jpg)](/media/about/lockpicking.jpg "")
 </p>
+
 ## Skydiving
 
 *See my [skydiving page](/skydiving)*
 
 <p class="images">
 [![](/media/skydiving/landing_thumb.jpg)](/media/skydiving/landing.jpg "")
+</p>
+
+## Canyoning
+
+*See my [canyoning page](/canyoning)*
+
+<p class="images">
+[![](/media/canyoning/waterfall_thumb.jpg)](/media/skydiving/waterfall.jpg "")
 </p>

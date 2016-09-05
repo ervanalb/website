@@ -2,6 +2,7 @@
 
 ## Recently updated ##
 
+* [Canyoning](canyoning)
 * [Skydiving](skydiving)
 * [Furniture](furniture)
 * [Physical Security](physec)
