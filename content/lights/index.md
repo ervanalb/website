@@ -25,6 +25,8 @@ I really like creating light shows. I have been slowly improving on a system for
 
 *Radiance* aims to solve the human interface problems. You can find it on Github [here](https://github.com/zbanks/radiance). Radiance composites patterns written in GLSL to create music-reactive lighting effects. Radiance has the potential to become fully-featured [VJ](https://en.wikipedia.org/wiki/VJing) software.
 
+Due to many issues with the C / SDL version, Radiance is currently being rewritten using the Qt application framework.
+
 ## 2016 East Side Party
 
 The 2016 East Side Party was lit using lux and VJ'd with Radiance. Sadun, Banti, and Farita put up the display and ran the lights during the party, with technical support from me and zbanks.
