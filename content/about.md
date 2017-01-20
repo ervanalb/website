@@ -2,7 +2,7 @@
 
 I'm Eric Van Albert. You can email me by replacing the first dot in this domain with @
 
-I live in Massachusetts near Boston. I work at [Formlabs](http://formlabs.com/).
+I live in Massachusetts near Boston. I work at [Vicarious Surgical](http://vicarioussurgical.com/).
 
 I graduated MIT in 2014. I lived in [EC](http://eastcamp.us/) ([Tetazoo](http://tetazoo.scripts.mit.edu/))
 
