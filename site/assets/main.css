@@ -111,4 +111,10 @@ code {
 
 .images {
     text-align: center;
+    display: table;
+}
+
+.images img {
+    margin: 0.5em;
+    vertical-align: middle;
 }
