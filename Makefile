@@ -13,9 +13,12 @@ HTML = $(patsubst $(SRC_DIR)/%.md, $(DST_DIR)/%.html,$(MD_SRC))
 INCLUDES = $(shell find $(INC_DIR) -name \*.html -type f)
 
 JPEGS = $(shell find $(MEDIA_DIR) -name \*.jpg -type f \! -name \*_thumb.jpg)
-THUMBNAILS = $(patsubst $(MEDIA_DIR)/%.jpg, $(MEDIA_DIR)/%_thumb.jpg,$(JPEGS))
+JPEG_THUMBNAILS = $(patsubst $(MEDIA_DIR)/%.jpg, $(MEDIA_DIR)/%_thumb.jpg,$(JPEGS))
 
-MEDIA = $(THUMBNAILS)
+VIDEOS = $(shell find $(MEDIA_DIR) -name \*.mp4 -type f)
+VIDEO_THUMBNAILS = $(patsubst $(MEDIA_DIR)/%.mp4, $(MEDIA_DIR)/%_thumb.gif,$(VIDEOS))
+
+MEDIA = $(JPEG_THUMBNAILS) $(VIDEO_THUMBNAILS)
 
 # Pandoc flags
 PFLAGS = --template $(INC_DIR)/template.html
@@ -29,6 +32,8 @@ $(DST_DIR)/%.html: $(SRC_DIR)/%.md $(INCLUDES)
 	pandoc $(PFLAGS) -o $@ $<
 $(MEDIA_DIR)/%_thumb.jpg: $(MEDIA_DIR)/%.jpg
 	convert $< -auto-orient -thumbnail 320x320\> $@
+$(MEDIA_DIR)/%_thumb.gif: $(MEDIA_DIR)/%.mp4
+	./thumbgif.sh $< $@
 test: $(HTML)
 	cd site; python -m http.server
 s3: $(MEDIA)
