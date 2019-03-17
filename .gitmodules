@@ -1,0 +1,6 @@
+[submodule "pelican-advthumbnailer"]
+	path = pelican-advthumbnailer
+	url = https://github.com/AlexJF/pelican-advthumbnailer.git
+[submodule "pelican-plugins"]
+	path = pelican-plugins
+	url = https://github.com/getpelican/pelican-plugins.git
