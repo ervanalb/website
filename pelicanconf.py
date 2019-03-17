@@ -40,3 +40,4 @@ PLUGINS = ['advthumbnailer', 'summary', 'neighbors']
 AUTHOR_SAVE_AS = False
 DIRECT_TEMPLATES = ['index', 'categories', 'tags']
 SUMMARY_END_MARKER = "---BREAK---"
+DISPLAY_TAGS_ON_MENU = 5

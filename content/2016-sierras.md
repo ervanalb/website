@@ -1,10 +1,14 @@
-Title: Canyoning
-Date: 2019-03-14
+Title: Canyoning in the Sierras
+Date: 2016-09-05
 Category: Adventures
+Tags: canyons, ropes
 
-Canyons are like water parks that sometimes try to kill you.
+In summer of 2016, we took a trip to the Sierras in California to descend some canyons.
 
-## Summer 2016
+[![]({static}/media/canyoning/thumbnails/_x320/down_canyon.jpg)]({static}/media/canyoning/down_canyon.jpg "The view down-canyon")
+[![]({static}/media/canyoning/thumbnails/_x320/teacups.jpg)]({static}/media/canyoning/teacups.jpg "7 Teacups")
+
+---BREAK---
 
 Collectively, we did:
 
@@ -19,14 +23,13 @@ Collectively, we did:
 
 There aren't many pictures because I was using my phone, which is not waterproof. Keep this in mind when viewing some of the shots I did get!
 
-[![]({static}/media/canyoning/thumbnails/_x320/up_canyon.jpg)]({static}/media/canyoning/up_canyon.jpg "The view up-canyon")
-[![]({static}/media/canyoning/thumbnails/_x320/down_canyon.jpg)]({static}/media/canyoning/down_canyon.jpg "The view down-canyon")
-[![]({static}/media/canyoning/thumbnails/_x320/waterfall.jpg)]({static}/media/canyoning/waterfall.jpg "A waterfall")
-[![]({static}/media/canyoning/thumbnails/_x320/eric_rock.jpg)]({static}/media/canyoning/eric_rock.jpg "Eric sitting on a rock")
-[![]({static}/media/canyoning/thumbnails/_x320/crystal.jpg)]({static}/media/canyoning/crystal.jpg "Crystal")
-[![]({static}/media/canyoning/thumbnails/_x320/kamal_liz.jpg)]({static}/media/canyoning/kamal_liz.jpg "Kamal and Liz")
-[![]({static}/media/canyoning/thumbnails/_x320/sabrina_maya_becca.jpg)]({static}/media/canyoning/sabrina_maya_becca.jpg "Sabrina, Maya, Becca")
-[![]({static}/media/canyoning/thumbnails/_x320/zbanks.jpg)]({static}/media/canyoning/zbanks.jpg "zbanks")
+[![]({static}/media/canyoning/thumbnails/_x240/up_canyon.jpg)]({static}/media/canyoning/up_canyon.jpg "The view up-canyon")
+[![]({static}/media/canyoning/thumbnails/_x240/waterfall.jpg)]({static}/media/canyoning/waterfall.jpg "A waterfall")
+[![]({static}/media/canyoning/thumbnails/_x240/eric_rock.jpg)]({static}/media/canyoning/eric_rock.jpg "Eric sitting on a rock")
+[![]({static}/media/canyoning/thumbnails/_x240/crystal.jpg)]({static}/media/canyoning/crystal.jpg "Crystal")
+[![]({static}/media/canyoning/thumbnails/_x240/kamal_liz.jpg)]({static}/media/canyoning/kamal_liz.jpg "Kamal and Liz")
+[![]({static}/media/canyoning/thumbnails/_x240/sabrina_maya_becca.jpg)]({static}/media/canyoning/sabrina_maya_becca.jpg "Sabrina, Maya, Becca")
+[![]({static}/media/canyoning/thumbnails/_x240/zbanks.jpg)]({static}/media/canyoning/zbanks.jpg "zbanks")
 [![]({static}/media/canyoning/thumbs_up.gif)]({static}/media/canyoning/thumbs_up.gif "Thumbs up")
 [![]({static}/media/canyoning/sadun_waterfall.gif)]({static}/media/canyoning/sadun_waterfall.gif "Sadun descending a waterfall")
 [![]({static}/media/canyoning/vicki_waterfall.gif)]({static}/media/canyoning/vicki_waterfall.gif "Vicki descending a waterfall")
@@ -38,9 +41,8 @@ There aren't many pictures because I was using my phone, which is not waterproof
 [![]({static}/media/canyoning/maya_rappel.gif)]({static}/media/canyoning/maya_rappel.gif "Maya rappelling (Upper jump)")
 [![]({static}/media/canyoning/crystal_rappel.gif)]({static}/media/canyoning/crystal_rappel.gif "Crystal rappelling (Upper jump)")
 [![]({static}/media/canyoning/zbanks_rappel.gif)]({static}/media/canyoning/zbanks_rappel.gif "Zach rappelling (Upper jump)")
-[![]({static}/media/canyoning/thumbnails/_x320/maya.jpg)]({static}/media/canyoning/maya.jpg "Maya")
-[![]({static}/media/canyoning/thumbnails/_x320/teacups.jpg)]({static}/media/canyoning/teacups.jpg "7 Teacups")
+[![]({static}/media/canyoning/thumbnails/_x240/maya.jpg)]({static}/media/canyoning/maya.jpg "Maya")
 [![]({static}/media/canyoning/maya_jump_teacups.gif)]({static}/media/canyoning/maya_jump_teacups.gif "Maya jumping (7 teacups)")
 [![]({static}/media/canyoning/zbanks_jump_teacups.gif)]({static}/media/canyoning/zbanks_jump_teacups.gif "Zach jumping (7 teacups)")
-[![]({static}/media/canyoning/thumbnails/_x320/zbanks_maya.jpg)]({static}/media/canyoning/zbanks_maya.jpg "Zach and Maya chilling in the pool")
+[![]({static}/media/canyoning/thumbnails/_x240/zbanks_maya.jpg)]({static}/media/canyoning/zbanks_maya.jpg "Zach and Maya chilling in the pool")
 

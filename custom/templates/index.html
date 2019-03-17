@@ -28,7 +28,9 @@
   {% for cat, null in categories %}
     <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
   {% endfor %}
-  {% for tag, articles in (tags|sort)[0:5] %}
+{% endif %}
+{% if DISPLAY_TAGS_ON_MENU %}
+  {% for tag, articles in (tags|sort)[:DISPLAY_TAGS_ON_MENU] %}
     <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
   {% endfor %}
 {% endif %}
