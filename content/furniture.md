@@ -1,7 +1,7 @@
 Title: Furniture
 Date: 2016-09-14
 Category: Projects
-tags: hardware
+tags: hardware, lights
 
 When I first moved into the Nightosphere in 2014, there was no furniture. Thankfully, EC rush had just finished, so there was free wood. The living room furniture was built entirely with recycled lumber from stuff like the [roller coaster](https://www.youtube.com/watch?v=WvcMsrUJbiY).
 
@@ -28,7 +28,7 @@ This cabinet holds all my gear. It was inspired by the movie [Kingsman](http://w
 
 ## Floating bed
 
-Now with [lux-powered](/lights) underglow!
+Now with [lux-powered](https://github.com/ervanalb/lux) underglow!
 
 [![]({static}/media/furniture/thumbnails/_x320/bed_finished.jpg)]({static}/media/furniture/bed_finished.jpg "Completed bed")
 [![]({static}/media/furniture/bed_lights_thumb.gif)]({static}/media/furniture/bed_lights.mp4 "Underglow")

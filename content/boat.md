@@ -1,6 +1,7 @@
 Title: Boat
 Date: 2016-06-16
 Category: Projects
+Tags: hardware, vehicles
 
 This is a page about my boat! It is solar-powered and packs up into a cart that can be carried by one person.
 
