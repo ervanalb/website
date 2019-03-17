@@ -28,6 +28,9 @@
   {% for cat, null in categories %}
     <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
   {% endfor %}
+  {% for tag, articles in (tags|sort)[0:5] %}
+    <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
+  {% endfor %}
 {% endif %}
 </ul></nav><!-- /#menu -->
 </section><!-- /#content -->

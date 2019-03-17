@@ -45,10 +45,6 @@ ul {
     text-transform: uppercase;
 }
 
-article, nav {
-    display: inline-block;
-}
-
 .hentry header, .hentry footer, .hentry time {
     display: inline-block;
     margin-bottom: 0;
@@ -60,7 +56,7 @@ article, nav {
 
 .read-more {
     display: inline-block;
-    margin-left: 2ch;
+    margin-left: 4ch;
     font-style: italic;
     margin-bottom: 1em;
 }
