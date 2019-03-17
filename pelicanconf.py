@@ -36,9 +36,11 @@ DEFAULT_PAGINATION = 3
 
 STATIC_PATHS = ['media']
 PLUGIN_PATHS = ['pelican-plugins', 'pelican-advthumbnailer']
-PLUGINS = ['advthumbnailer', 'summary', 'neighbors']
+PLUGINS = ['advthumbnailer', 'summary', 'neighbors', 'category_order']
 
 AUTHOR_SAVE_AS = False
 DIRECT_TEMPLATES = ['index', 'categories', 'tags']
 SUMMARY_END_MARKER = "---BREAK---"
 DISPLAY_TAGS_ON_MENU = 5
+CATEGORIES_ORDER_BY = "alphabetic"
+TAGS_ORDER_BY = "size-rev"

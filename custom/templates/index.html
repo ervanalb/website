@@ -30,7 +30,7 @@
   {% endfor %}
 {% endif %}
 {% if DISPLAY_TAGS_ON_MENU %}
-  {% for tag, articles in (tags|sort)[:DISPLAY_TAGS_ON_MENU] %}
+  {% for tag, articles in tags[:DISPLAY_TAGS_ON_MENU] %}
     <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
   {% endfor %}
 {% endif %}

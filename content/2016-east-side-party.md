@@ -1,7 +1,7 @@
 Title: 2016 East Side Party
 Date: 2016-08-27
 Category: Projects
-Tags: radiance, lights
+Tags: radiance, lights, hardware, software
 
 The 2016 East Side Party was lit using lux and VJ'd with Radiance. Sadun, Banti, and Farita put up the display and ran the lights during the party, with technical support from me and zbanks.
 

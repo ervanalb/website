@@ -1,7 +1,7 @@
 Title: 2013 East Side Party
 Date: 2013-08-25
 Category: Projects
-Tags: radiance, lights
+Tags: radiance, lights, hardware, software
 
 My friend Zach and I put lights on the Rush Fort at the [East Side party](http://eastcamp.us{static}/media/albums/view.py?path=REX/2013) in August 2013.
 
