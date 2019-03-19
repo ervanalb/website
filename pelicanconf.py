@@ -34,7 +34,7 @@ DEFAULT_PAGINATION = 3
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
 
-STATIC_PATHS = ['media']
+STATIC_PATHS = ['media', 'stuff']
 PLUGIN_PATHS = ['pelican-plugins', 'pelican-advthumbnailer']
 PLUGINS = ['advthumbnailer', 'summary', 'neighbors', 'category_order']
 

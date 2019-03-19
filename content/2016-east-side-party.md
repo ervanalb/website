@@ -1,5 +1,5 @@
 Title: 2016 East Side Party
-Date: 2016-08-27
+Date: 2016-08-28
 Category: Projects
 Tags: radiance, lights, hardware, software
 

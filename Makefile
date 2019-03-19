@@ -8,8 +8,7 @@ OUTPUTDIR=$(BASEDIR)/output
 CONFFILE=$(BASEDIR)/pelicanconf.py
 PUBLISHCONF=$(BASEDIR)/publishconf.py
 
-S3_BUCKET=
-
+S3_BUCKET=eric.van.al
 
 DEBUG ?= 0
 ifeq ($(DEBUG), 1)
