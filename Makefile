@@ -72,11 +72,17 @@ endif
 
 publish:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
+	[ -e $(OUTPUTDIR)/.nojekyll ] || touch $(OUTPUTDIR)/.nojekyll
+	[ -e $(OUTPUTDIR)/CNAME ] || echo "eric.van.al" > $(OUTPUTDIR)/CNAME
 
 s3_upload: publish
 	aws s3 sync $(OUTPUTDIR)/ s3://$(S3_BUCKET) --acl public-read --delete
 
+ghp_upload: publish
+	ghp-import $(OUTPUTDIR)/
+	git push origin gh-pages --force
+
 clean_images:
 	./clean_images.sh
 
-.PHONY: html help clean regenerate serve serve-global devserver stopserver publish s3_upload clean_images
+.PHONY: html help clean regenerate serve serve-global devserver stopserver publish s3_upload clean_images ghp
