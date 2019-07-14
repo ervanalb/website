@@ -17,7 +17,20 @@ ul {
     margin-bottom 1em;
 }
 
-.entry-content p, .entry-content iframe {
+#content, #banner {
+    font-size: 0.9rem;
+    max-width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+#content header, #content footer, #content article, #content nav {
+    font-size: 1em;
+}
+
+.entry-content p {
     padding-left: 2ch;
     margin: 0em;
     margin-bottom: 1em;
@@ -113,4 +126,10 @@ a:visited {
 #menu ul li {
     float: left;
     margin-left: 4ch;
+}
+
+.entry-content img, .entry-content iframe, .entry-content video {
+  display: block;
+  margin: 1em auto;
+  max-width: 100%
 }
