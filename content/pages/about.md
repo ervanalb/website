@@ -9,7 +9,7 @@ I graduated MIT in 2014. I lived in [EC](http://eastcamp.us/) ([Tetazoo](http://
 
 I like to work on [projects]({static}/category/projects.html), both [hardware]({static}/tag/hardware.html) and [software]({static}/tag/software.html). I am interested in visual effects [lighting]({static}/tag/lights.html) and [security]({static}/tag/security.html).
 
-I also enjoy going on [adventures]({static}/category/adventures.html). I am a licensed [skydiver]({static}/tag/skydiving.html) and SCUBA diver, and enjoy [canyoning]({static}/tag/canyons.html) and climbing.
+I also enjoy going on [adventures]({static}/category/adventures.html). I am a licensed [skydiver]({static}/tag/skydiving.html) and [SCUBA diver]({static}/tag/scuba.html), and enjoy [canyoning]({static}/tag/canyons.html) and climbing.
 
 [![]({static}/media/about/thumbnails/_x320/lockpicking.jpg)]({static}/media/about/lockpicking.jpg "Picked open American lock")
 [![]({static}/media/skydiving/thumbnails/_x320/landing.jpg)]({static}/media/skydiving/landing.jpg "Canopy falling to the ground after landing")

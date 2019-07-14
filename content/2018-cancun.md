@@ -11,6 +11,8 @@ cavern diving in the cenotes.
 [![]({static}/media/2018-cancun/thumbnails/_x320/cenote.jpg)]({static}/media/2018-cancun/cenote.jpg "Inside a cenote looking out")
 ---BREAK---
 
+## Video
+
 <iframe id="ytplayer" type="text/html" width="640" height="360"
   src="https://www.youtube.com/embed/n6kJ8dX20CY"
   frameborder="0"></iframe>
