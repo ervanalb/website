@@ -6,14 +6,12 @@ python:
 
 before_install:
 - pip install -U pelican
+- pip install -U bs4
+- pip install -U Markdown
 
 script:
 - make publish
 
-deploy:
-  provider: pages
-  local_dir: output
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
-  on:
-    branch: gh-pages
+after_success:
+- echo -e "$DEPLOY_KEY" > deploy_key
+- GIT_SSH_COMMAND='ssh -i deploy_key' make ghp_upload
