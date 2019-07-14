@@ -8,10 +8,8 @@ before_install:
 - pip install -U pelican
 - pip install -U bs4
 - pip install -U Markdown
+- pip install -U ghp-import
 
 script:
-- make publish
-
-after_success:
 - echo -e "$DEPLOY_KEY" > deploy_key
 - GIT_SSH_COMMAND='ssh -i deploy_key' make ghp_upload
