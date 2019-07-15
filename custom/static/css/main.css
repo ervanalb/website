@@ -1,6 +1,12 @@
 body {
     font-family: monospace;
     color: #333;
+    text-size-adjust: none;
+}
+
+@viewport {
+  width: device-width;
+  zoom: 1.0;
 }
 
 h1 {
@@ -18,16 +24,11 @@ ul {
 }
 
 #content, #banner {
-    font-size: 0.9rem;
     max-width: 50rem;
     margin-left: auto;
     margin-right: auto;
     padding-left: 1rem;
     padding-right: 1rem;
-}
-
-#content header, #content footer, #content article, #content nav {
-    font-size: 1em;
 }
 
 .entry-content p {
@@ -80,7 +81,7 @@ ul {
 
 .post-info {
     font-style: italic;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
 }
 
 a {
