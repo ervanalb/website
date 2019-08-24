@@ -39,6 +39,12 @@ ul {
     margin-bottom: 1em;
 }
 
+.entry-content pre {
+    padding-left: 6ch;
+    margin: 0em;
+    margin-bottom: 1em;
+}
+
 .entry-content h1 {
     font-size: 1em;
     font-weight: bold;
