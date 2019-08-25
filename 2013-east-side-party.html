@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <title>ervanalb/blog/2013 East Side Party</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" \>
+        <link href="https://eric.van.al/theme/css/main.css" type="text/css" rel="stylesheet" />
+        <link href="https://eric.van.al/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="ervanalb/blog Full Atom Feed" />
+        <link href="https://eric.van.al/feeds/projects.atom.xml" type="application/atom+xml" rel="alternate" title="ervanalb/blog Categories Atom Feed" />
+
+
+
+
+    <meta name="tags" content="radiance" />
+    <meta name="tags" content="lights" />
+    <meta name="tags" content="hardware" />
+    <meta name="tags" content="software" />
+
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="https://eric.van.al/">ervanalb/blog</a>/<strong>2013 East Side Party</strong></h1>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <header>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2013-08-25T00:00:00-04:00">
+      25 August 2013
+    </time>
+    <div class="category">
+        Category: <a href="https://eric.van.al/category/projects.html">Projects</a>
+    </div>
+    <div class="tags">
+        Tags:
+            <a href="https://eric.van.al/tag/radiance.html">radiance</a>
+            <a href="https://eric.van.al/tag/lights.html">lights</a>
+            <a href="https://eric.van.al/tag/hardware.html">hardware</a>
+            <a href="https://eric.van.al/tag/software.html">software</a>
+    </div>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <p>My friend Zach and I put lights on the Rush Fort at the <a href="http://eastcamp.us{static}/media/albums/view.py?path=REX/2013">East Side party</a> in August 2013.</p>
+<p><a href="https://eric.van.al/media/lights/2013/lux_wiring.jpg" title="Some lux wiring"><img alt="" src="https://eric.van.al/media/lights/2013/thumbnails/_x320/lux_wiring.jpg"></a>
+<a href="https://eric.van.al/media/lights/2013/rush_fort_night.jpg" title="Lights at night"><img alt="" src="https://eric.van.al/media/lights/2013/thumbnails/_x320/rush_fort_night.jpg"></a>
+</p>
+<p><a href="https://github.com/ervanalb/lux">lux</a> hardware powered all of the strips. Back then, it used CAN to send data to all of the light strips. Trying to get CAN to transmit reliably over long distances, especially when routed near noise sources like high power audio, was miserable. The difficulties encountered in 2013 led to replacing CAN with a speak-when-spoken-to half-duplex serial protocol (RS-422) which has been much more reliable.</p>
+<p><a href="https://radiance.video">radiance</a> (back then it was called <em>beat-off</em>) to design patterns to show on them. It had manual tempo synchronization, and only a handful of pre-saved patterns. It was written in pygame and was much closer to the paradigm of seq24 than modern radiance (see 2012 section below.)</p>
+<p><a href="https://eric.van.al/media/lights/2013/more_lux_wiring.jpg" title="More lux wiring"><img alt="" src="https://eric.van.al/media/lights/2013/thumbnails/_x320/more_lux_wiring.jpg"></a>
+<a href="https://eric.van.al/media/lights/2013/rush_fort_day.jpg" title="Daytime lights"><img alt="" src="https://eric.van.al/media/lights/2013/thumbnails/_x320/rush_fort_day.jpg"></a></p>
+<h2>2011</h2>
+<p>This was the second time I helped do lighting for the East Side party, and the first time using lux / radiance.
+The first time was in 2012. I was working in San Francisco for the summer, and one of my fellow interns was sent to China
+to do some manufacturing engineering. He came back with tons of cheap LED strips.</p>
+<p>I threw together some control boards that took in MIDI control signals, and output patterns to the lights.
+I also added a MIDI clock out feature to <a href="https://mixxx.org">MIXXX</a>, which my friend Gabe would be using to DJ the party.</p>
+<p>The actual patterns were constructed using a MIDI keyboard and <a href="http://www.filter24.org/seq24/">seq24</a> to "play" the lights.
+Different notes corresponded to different colors, and different octaves were different effects.
+The MIDI clock signal kept the sequencer in time with the music.</p>
+<p>Overall, this party went very well, and while the size of the setup increased and technical improvements were made, the smoothness and successful execution of the operation wasn't matched until <a href="https://eric.van.al/2016-east-side-party.html">2016</a>.</p>
+  </div><!-- /.entry-content -->
+<p class="paginator">
+        &laquo; <a href="https://eric.van.al/second-floor.html">Second Floor</a>
+    |
+        <a href="https://eric.van.al/3d-printing-schlage-primus-keys.html">3D printing Schlage Primus keys</a> &raquo;
+</p>
+</section>
+</body>
+</html>

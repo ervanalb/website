@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <title>ervanalb/blog/promap</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" \>
+        <link href="https://eric.van.al/theme/css/main.css" type="text/css" rel="stylesheet" />
+        <link href="https://eric.van.al/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="ervanalb/blog Full Atom Feed" />
+        <link href="https://eric.van.al/feeds/projects.atom.xml" type="application/atom+xml" rel="alternate" title="ervanalb/blog Categories Atom Feed" />
+
+
+
+
+    <meta name="tags" content="software" />
+
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="https://eric.van.al/">ervanalb/blog</a>/<strong>promap</strong></h1>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <header>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2019-02-26T00:00:00-05:00">
+      26 February 2019
+    </time>
+    <div class="category">
+        Category: <a href="https://eric.van.al/category/projects.html">Projects</a>
+    </div>
+    <div class="tags">
+        Tags:
+            <a href="https://eric.van.al/tag/software.html">software</a>
+    </div>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <p>promap is software to create projection maps.
+The maps that it produces can be used with video art tools such as <a href="https://radiance.video">radiance</a> to project onto physical objects.
+The algorithm projects structured light using a projector.
+It captures the result using a single camera and computes the physical scene as viewed from the projector.
+It also attempts to compute a disparity map, which corresponds to depth.
+You can <a href="https://pypi.org/project/promap/">install promap using pip</a> or read more about it on <a href="https://github.com/ervanalb/promap">Github</a>.</p>
+<p>
+promap was written over the course of a few weekends.
+It's a commmand-line tool that uses Python and a little bit of OpenCV to project, capture, and process images.
+The algorithm it implements is as follows:</p>
+<ol>
+<li>Generate gray code images</li>
+<li>Send the gray code images to the projector</li>
+<li>Capture the images using the camera</li>
+<li>Decode the images into a lookup table that goes from camera to projector space</li>
+<li>Invert the lookup table so it goes from projector to camera space, and compute a disparity map using least-squares fitting</li>
+<li>Reproject camera's view of the scene (using the inverted lookup table) producing the projector's view of the scene</li>
+</ol>
+<p>promap will do all of these for you in one go, or you can do some subset of them and alter / introspect the results at each step.</p>
+<p><a href="https://eric.van.al/media/promap/flowchart.png" title="A flowchart showing the algorithm described above"><img alt="" src="https://eric.van.al/media/promap/thumbnails/_x640/flowchart.png"></a></p>
+<p>How well promap works depends heavily on the quality of the projector and camera setup.
+A bright projector and a high-resolution camera will produce much better results.
+The camera should be placed as close to the projector as possible,
+though placing it directly in-line with the projector will result in a low-resolution disparity map (the color map will be great, though.)</p>
+<p>promap has seen very little use in the wild, so please let me know if you use it and like it.
+I've used it once to project onto an oddly shaped screen.
+I brought the map into an image editor and drew over the shape of the screen, and saved the result as a black and white image to be used as a mask.</p>
+  </div><!-- /.entry-content -->
+<p class="paginator">
+        <a href="https://eric.van.al/ffedit.html">ffedit</a> &raquo;
+</p>
+</section>
+</body>
+</html>

@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>ervanalb/blog</title><link href="https://eric.van.al/" rel="alternate"></link><link href="https://eric.van.al/feeds/all.atom.xml" rel="self"></link><id>https://eric.van.al/</id><updated>2019-02-26T00:00:00-05:00</updated><entry><title>promap</title><link href="https://eric.van.al/promap.html" rel="alternate"></link><published>2019-02-26T00:00:00-05:00</published><updated>2019-02-26T00:00:00-05:00</updated><author><name></name></author><id>tag:eric.van.al,2019-02-26:/promap.html</id><summary type="html">&lt;p&gt;promap is software to create projection maps.
+The maps that it produces can be used with video art tools such as &lt;a href="https://radiance.video"&gt;radiance&lt;/a&gt; to project onto physical objects.
+The algorithm projects structured light using a projector.
+It captures the result using a single camera and computes the physical scene as viewed from the projector.
+It also attempts to compute a disparity map, which corresponds to depth.
+You can &lt;a href="https://pypi.org/project/promap/"&gt;install promap using pip&lt;/a&gt; or read more about it on &lt;a href="https://github.com/ervanalb/promap"&gt;Github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;</summary><content type="html">&lt;p&gt;promap is software to create projection maps.
+The maps that it produces can be used with video art tools such as &lt;a href="https://radiance.video"&gt;radiance&lt;/a&gt; to project onto physical objects.
+The algorithm projects structured light using a projector.
+It captures the result using a single camera and computes the physical scene as viewed from the projector.
+It also attempts to compute a disparity map, which corresponds to depth.
+You can &lt;a href="https://pypi.org/project/promap/"&gt;install promap using pip&lt;/a&gt; or read more about it on &lt;a href="https://github.com/ervanalb/promap"&gt;Github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;
+promap was written over the course of a few weekends.
+It's a commmand-line tool that uses Python and a little bit of OpenCV to project, capture, and process images.
+The algorithm it implements is as follows:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Generate gray code images&lt;/li&gt;
+&lt;li&gt;Send the gray code images to the projector&lt;/li&gt;
+&lt;li&gt;Capture the images using the camera&lt;/li&gt;
+&lt;li&gt;Decode the images into a lookup table that goes from camera to projector space&lt;/li&gt;
+&lt;li&gt;Invert the lookup table so it goes from projector to camera space, and compute a disparity map using least-squares fitting&lt;/li&gt;
+&lt;li&gt;Reproject camera's view of the scene (using the inverted lookup table) producing the projector's view of the scene&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;promap will do all of these for you in one go, or you can do some subset of them and alter / introspect the results at each step.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/promap/flowchart.png" title="A flowchart showing the algorithm described above"&gt;&lt;img alt="" src="https://eric.van.al/media/promap/thumbnails/_x640/flowchart.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;How well promap works depends heavily on the quality of the projector and camera setup.
+A bright projector and a high-resolution camera will produce much better results.
+The camera should be placed as close to the projector as possible,
+though placing it directly in-line with the projector will result in a low-resolution disparity map (the color map will be great, though.)&lt;/p&gt;
+&lt;p&gt;promap has seen very little use in the wild, so please let me know if you use it and like it.
+I've used it once to project onto an oddly shaped screen.
+I brought the map into an image editor and drew over the shape of the screen, and saved the result as a black and white image to be used as a mask.&lt;/p&gt;</content><category term="software"></category></entry><entry><title>ffedit</title><link href="https://eric.van.al/ffedit.html" rel="alternate"></link><published>2019-01-01T00:00:00-05:00</published><updated>2019-01-01T00:00:00-05:00</updated><author><name></name></author><id>tag:eric.van.al,2019-01-01:/ffedit.html</id><summary type="html">&lt;p&gt;ffedit is a command-line tool for video editing.
+ffmpeg can cut and splice together video clips, but the syntax for doing so quickly gets out of control for large numbers of clips.
+ffedit takes in a YAML file that describes which parts of which clips to combine, any filters that should be applied to them,
+and invokes ffmpeg to produce the desired output.
+You can look at usage and download it from &lt;a href="https://github.com/ervanalb/ffedit"&gt;Github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;</summary><content type="html">&lt;p&gt;ffedit is a command-line tool for video editing.
+ffmpeg can cut and splice together video clips, but the syntax for doing so quickly gets out of control for large numbers of clips.
+ffedit takes in a YAML file that describes which parts of which clips to combine, any filters that should be applied to them,
+and invokes ffmpeg to produce the desired output.
+You can look at usage and download it from &lt;a href="https://github.com/ervanalb/ffedit"&gt;Github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;
+With ffedit, concatenating video files is as simple as:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;all&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+  &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;a.mkv&lt;/span&gt;
+  &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;b.mkv&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;but it supports advanced usage, such as:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;all&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+  &lt;span class="nt"&gt;concat&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="nt"&gt;fadein&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;2&lt;/span&gt;  &lt;span class="c1"&gt;# fade in over 2 seconds&lt;/span&gt;
+    &lt;span class="nt"&gt;fadeout&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;2&lt;/span&gt; &lt;span class="c1"&gt;# fade out over 2 seconds&lt;/span&gt;
+    &lt;span class="nt"&gt;inputs&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;clip&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+          &lt;span class="nt"&gt;file&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;a.mkv&lt;/span&gt;
+          &lt;span class="nt"&gt;start&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;1:20&lt;/span&gt;  &lt;span class="c1"&gt;# Start 1 minute 20 seconds in&lt;/span&gt;
+          &lt;span class="nt"&gt;duration&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;15&lt;/span&gt; &lt;span class="c1"&gt;# Only take 15 seconds&lt;/span&gt;
+      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="nt"&gt;clip&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+          &lt;span class="nt"&gt;file&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;b.mkv&lt;/span&gt;
+          &lt;span class="nt"&gt;speed&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;2x&lt;/span&gt; &lt;span class="c1"&gt;# speed up video&lt;/span&gt;
+          &lt;span class="nt"&gt;tempo&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;2x&lt;/span&gt; &lt;span class="c1"&gt;# speed up audio&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;ffedit was largely written on a plane ride back from &lt;a href="https://eric.van.al/canyoning-and-diving-in-australia.html"&gt;Australia&lt;/a&gt;
+and was used to edit the video from that trip (and subsequent trips.)
+Before writing ffedit, I was using a BASH script / Makefile to invoke ffmpeg.&lt;/p&gt;</content><category term="software"></category></entry><entry><title>Canyoning and Diving in Australia</title><link href="https://eric.van.al/canyoning-and-diving-in-australia.html" rel="alternate"></link><published>2018-12-30T00:00:00-05:00</published><updated>2018-12-30T00:00:00-05:00</updated><author><name></name></author><id>tag:eric.van.al,2018-12-30:/canyoning-and-diving-in-australia.html</id><summary type="html">&lt;p&gt;Sabrina had just finished wintering over at the south pole,
+and had a plane ticket to anywhere in the world.
+She decided to plan a four-part trip that involved
+hiking in New Zealand,
+canyoning in Australia,
+diving the Great Barrier Reef,
+and climbing in Thailand.
+I joined for the middle two segments, and got to do some fun canyoning and diving.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/2018-australia/abseil.jpg" title="Abseiling a waterfall"&gt;&lt;img alt="" src="https://eric.van.al/media/2018-australia/thumbnails/_x320/abseil.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/2018-australia/turtle.jpg" title="Turtle munching some coral"&gt;&lt;img alt="" src="https://eric.van.al/media/2018-australia/thumbnails/_x320/turtle.jpg"&gt;&lt;/a&gt;
+</summary><content type="html">&lt;p&gt;Sabrina had just finished wintering over at the south pole,
+and had a plane ticket to anywhere in the world.
+She decided to plan a four-part trip that involved
+hiking in New Zealand,
+canyoning in Australia,
+diving the Great Barrier Reef,
+and climbing in Thailand.
+I joined for the middle two segments, and got to do some fun canyoning and diving.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/2018-australia/abseil.jpg" title="Abseiling a waterfall"&gt;&lt;img alt="" src="https://eric.van.al/media/2018-australia/thumbnails/_x320/abseil.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/2018-australia/turtle.jpg" title="Turtle munching some coral"&gt;&lt;img alt="" src="https://eric.van.al/media/2018-australia/thumbnails/_x320/turtle.jpg"&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;h2&gt;Canyoning&lt;/h2&gt;
+&lt;p&gt;The crew for the canyoning portion of the trip
+was composed of Rassi, Sabrina, and me.
+The landscape of the canyons was fairly similar to the United States.
+One thing that surprised me was the amount of vegetation
+in the sandstone canyons.
+I'm used to Zion, which is basically a desert,
+so you get bare rock faces.
+In Australia, it was fairly common for a slot to open out
+into a short section of forest.
+There were also glow worms in the dark sections of the slot canyons.
+One of the canyons had a cave with hundreds of them lighting the ceiling.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/2018-australia/canyon-jungle.jpg" title="Greenery in a sandstone canyon"&gt;&lt;img alt="" src="https://eric.van.al/media/2018-australia/thumbnails/_x320/canyon-jungle.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;My favorite canyon was &lt;em&gt;Kanangra Main&lt;/em&gt;.
+It was the only granite canyon we did,
+and it certainly lived up to its class-C rating.
+The canyon is basically just a series of several multi-pitch rappels
+straight down a set of waterfalls,
+totalling a few hundred meters.
+There is probably only about 40 minutes of creek walking in the whole canyon,
+with 20 minutes at the end.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/2018-australia/kanangra-main.jpg" title="Abseiling in Kanangra Main"&gt;&lt;img alt="" src="https://eric.van.al/media/2018-australia/thumbnails/_x320/kanangra-main.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The exit hike is to go straight up "murdering gully,"
+which the beta said would take about 1.5 hours.
+We started straight up the valley,
+and encountered several vertical cliffs,
+with just enough water trickling down to make them slippery.
+After a few sketchy climbs up these, we departed from the valley
+and began a meandering bushwalk with no obvious path.
+We got cliffed out a few times, and had to take our best guess
+at how to proceed upwards.
+The route was covered in stinging spear grass
+and a rare kind of tree with big flat leaves
+that stung much worse.
+After 4.5 hours we finally emerged onto the ridgeline trail
+that brought us back to the starting point.
+That night, we talked with some local canyoneers who were
+staying at the same campsite as us.
+We described the ridiculous route we took up murdering gully,
+complete with the sketchy climbs and stinging plants.
+The locals said that we had navigated the gully
+exactly as intended, and thought it was ridiculous that
+it had taken us more than an hour and a half.
+That night we picked leeches off ourselves,
+except for Rassi, who didn't find theirs until the next morning.&lt;/p&gt;
+&lt;p&gt;This experience, along with the other canyons we did,
+has led me to the conclusion that Aussies are &lt;em&gt;way&lt;/em&gt; better at hiking that Americans,
+but slower at rappelling.
+They also have a strange fear of water,
+with many canyons calling for "lilos," or inflatable mattresses
+to float on down streams.
+We bought some and used them in the canyons,
+and while entertaining and novel,
+didn't seem necessary or practical in most situations.
+Nevertheless, I'm definitely considering packing one
+for next time I'm in the Sierras and faced with a 100' swim.
+Mostly, I just want to see the look on everyones face
+when I start inflating a pool toy in the middle of a
+swiftwater canyon.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/2018-australia/lilo.jpg" title="Rassi inflating a lilo"&gt;&lt;img alt="" src="https://eric.van.al/media/2018-australia/thumbnails/_x320/lilo.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;One of the wildest experiences happened not while canyoning,
+but while driving.
+We were headed for the Kanangra campground,
+having been warned by the book that it was a long hard drive.
+It was late at night and we were tired.
+We caught a glimpse what looked like a giant lit-up cliff face looming in front of us.
+The road became narrow and winding and started winding downwards.
+At the bottom of the treacherous switchbacks,
+we found ourselves at the base of the lit-up cliff.
+The road became one lane and went underground,
+through a natural tunnel formed by the Grand Arch of the
+&lt;a href="https://www.jenolancaves.org.au/"&gt;Jenolan cave system&lt;/a&gt;.
+I was definitely not expecting the highway to the campsite
+to turn into a cave, and driving through it in the dark
+was a surreal experience.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/2018-australia/jenolan.jpg" title="Walking through the Jenolan caves"&gt;&lt;img alt="" src="https://eric.van.al/media/2018-australia/thumbnails/_x320/jenolan.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I was dissapointed that the Australians don't call
+"&lt;a href="https://en.wikipedia.org/wiki/Australian_rappel"&gt;aussie rappelling&lt;/a&gt;" just "rappelling."
+I did Aussie rap down the last pitch of Kanangra Main,
+just to be able to say that I had gone Aussie rappelling in Australia.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/2018-australia/aussie-rappel.jpg" title="Aussie rapping the last pitch of Kanangra Main"&gt;&lt;img alt="" src="https://eric.van.al/media/2018-australia/thumbnails/_x320/aussie-rappel.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;"Diving"&lt;/h2&gt;
+&lt;p&gt;Crystal, Danny, and I were all certified before going to Australia.
+Sabrina was planning on getting certified there.&lt;/p&gt;
+&lt;p&gt;Crystal, Danny, and I made two dives together.
+The first we did unguided.
+I had a lot of trouble navigating,
+and Crystal had some bouyancy control issues which led to us getting separated.
+We surfaced far from the boat, regrouped on the surface, and had to be towed back in.
+We got a guide for the second dive, which went much better.
+After that, Danny and Sabrina transferred to the liveaboard vessel
+where they would do another dive and spend the night.
+Crystal and I went home.&lt;/p&gt;
+&lt;p&gt;The second day, Crystal and I made another two dives on the same boat, both guided.
+Our first dive had five people.
+One person had bouyancy control issues fairly early and surfaced.
+Another person got lost from the group a little farther along.
+Our guide indicated to me, Crystal, and the third remaining group member
+to kneel on the bottom and wait, while he searched for the missing group members.
+While waiting, the third remaining person saw another group swim by,
+thought it was our group, and left to join them.
+The instructor returned, having failed to locate any of the other divers,
+to learn that there were now three missing.
+We surfaced and waited, and eventually found everybody who had gotten lost,
+but there were definitely some tense moments.
+The fourth dive was with a much smaller group, and we had no issues.&lt;/p&gt;
+&lt;p&gt;The reef itself was quite cool,
+and we got to see a bunch of wildlife
+including turtles and reef sharks.
+However, the trip was plagued by poor conditions.
+It was rainy, which wasn't really a problem once underwater,
+but the moderately stormy weather made the sea incredibly rough.
+The 2-hour boat ride each way led to more than half of the participants
+getting seasick.
+By the second day, the boat began to smell noticably of vomit.
+The rough sea churned up a lot of particulates leading to poor visibility.
+When it was good, you could see maybe 5 meters, and when it was bad,
+it was hard to see 3.
+Given the conditions, it was unsurprising that so many people got lost.
+This, combined with the high cost of boat rides out to the reef,
+led us to only do two days of diving.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/2018-australia/shark.jpg" title="A reef shark"&gt;&lt;img alt="" src="https://eric.van.al/media/2018-australia/thumbnails/_x320/shark.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;We bummed around for a few days in Cairns.
+We rented a car and visited some waterfalls (but didn't rappel any.)
+We saw the &lt;a href="https://en.wikipedia.org/wiki/Curtain_Fig_Tree"&gt;curtain fig tree&lt;/a&gt;
+and cooked some kangaroo on the barbie.
+We went to Chillagoe and ducked into a super awesome cave system,
+which we only discovered the vastness of while stumbling around
+looking for the exit.
+We even called in a bush fire we spotted while driving back,
+and got to stargaze in the southern hemisphere.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/2018-australia/crystal-cave.jpg" title="Crystal in a cave"&gt;&lt;img alt="" src="https://eric.van.al/media/2018-australia/thumbnails/_x320/crystal-cave.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Video&lt;/h2&gt;
+&lt;iframe id="ytplayer" type="text/html" width="640" height="360"
+  src="https://www.youtube.com/embed/_Fjt-0B1BW0"
+  frameborder="0"&gt;&lt;/iframe&gt;</content><category term="canyons"></category><category term="ropes"></category><category term="scuba"></category><category term="caves"></category></entry><entry><title>Mesh stringer</title><link href="https://eric.van.al/mesh-stringer.html" rel="alternate"></link><published>2018-09-23T00:00:00-04:00</published><updated>2018-09-23T00:00:00-04:00</updated><author><name></name></author><id>tag:eric.van.al,2018-09-23:/mesh-stringer.html</id><summary type="html">&lt;p&gt;mesh-stringer is a tool for helping build physical models of STL files.
+It turns an STL file into a list of tube lengths and a stringing order.
+You can then build the model by cutting the requested lenghts of tube,
+and running a single string through them in the requested order.
+You can download the software on &lt;a href="https://github.com/ervanalb/mesh-stringer"&gt;Github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/mesh-stringer/cube.jpg" title="A model of a cube, and a cube made with straws and string"&gt;&lt;img alt="" src="https://eric.van.al/media/mesh-stringer/thumbnails/_x320/cube.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;</summary><content type="html">&lt;p&gt;mesh-stringer is a tool for helping build physical models of STL files.
+It turns an STL file into a list of tube lengths and a stringing order.
+You can then build the model by cutting the requested lenghts of tube,
+and running a single string through them in the requested order.
+You can download the software on &lt;a href="https://github.com/ervanalb/mesh-stringer"&gt;Github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/mesh-stringer/cube.jpg" title="A model of a cube, and a cube made with straws and string"&gt;&lt;img alt="" src="https://eric.van.al/media/mesh-stringer/thumbnails/_x320/cube.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+This was a weekend project done in collaboration with &lt;a href="https://github.com/zbanks/pipedream"&gt;zbanks&lt;/a&gt;.
+I proposed the problem of whether a mesh could always be strung with a single loop of thread.
+After an hour or so of discussion, he came up with the algorithm implemented here:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Naively thread each triangle separately. If you tried to build this, it would stay together but you would need 1 string per triangle.&lt;/li&gt;
+&lt;li&gt;Create a graph of mesh faces and how they are connected. Two faces are connected if they share an edge.&lt;/li&gt;
+&lt;li&gt;Calculate a spanning tree of this graph.&lt;/li&gt;
+&lt;li&gt;Every time the spanning tree crosses an edge, introduce a twist/swap the two strings in that edge, combining them into a single string.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The result of this algorithm is a single loop which threads every edge twice, and holds neighboring edges together as they meet at a vertex.
+Non-manifold meshes may not contain two threads per edge, but the algorithm will still work.
+Not only is there always a stringing order, but there are many different stringing orders possible, depending on how the spanning tree is built.
+The algorithm is also not specific to triangular meshes; it will work for arbitrary polygonal meshes (though practically, these don't hold their shape when built.)&lt;/p&gt;
+&lt;p&gt;Larissa, zbanks and I have built several of these physical models.
+We have found that even triangular meshes frequently don't hold their shape when built. It is easy for certain kinds of 3D geometry to "cave in,"
+creating a concave area where the original model had a convex one.&lt;/p&gt;
+&lt;p&gt;We also learned that maintaining tension while building is close to impossible.
+For the final shape to be rigid, it is necessary to walk through the stringing order again after the entire thing is built, pulling out tension at each vertex.
+This is a fairly easy process and significantly improves the result.&lt;/p&gt;
+&lt;p&gt;We attempted to build a 7-foot vase / igloo out of 1/2" PVC pipe and paracord. It took about 300 feet of string and was reasonably easy to build over the course of a day with 3-4 people. With the small models, certain actions were trivial to do, such as pulling through slack or lifting up the entire model to reorient certain parts of it. With the large tubes, these actions took coordination between multiple people.&lt;/p&gt;
+&lt;p&gt;Although the process was successful, the finished model was very droopy, and largely unable support its own weight. A better model would probably have triangles that are close to equilateral, so they don't collapse to lines or create concave geometry.&lt;/p&gt;</content><category term="software"></category></entry><entry><title>Canyoning in Ouray</title><link href="https://eric.van.al/canyoning-in-ouray.html" rel="alternate"></link><published>2018-08-25T00:00:00-04:00</published><updated>2018-08-25T00:00:00-04:00</updated><author><name></name></author><id>tag:eric.van.al,2018-08-25:/canyoning-in-ouray.html</id><summary type="html">&lt;p&gt;In the month between leaving work and starting grad school,
+Larissa did a bunch of outdoor adventuring.
+I joined her for a week of canyoning in Colorado,
+along with Maya and Josh.
+</summary><content type="html">&lt;p&gt;In the month between leaving work and starting grad school,
+Larissa did a bunch of outdoor adventuring.
+I joined her for a week of canyoning in Colorado,
+along with Maya and Josh.
+&lt;/p&gt;
+&lt;p&gt;It seemed to consistently rain in the afternoon,
+which frequently foiled our canyon plans.
+Some of the canyons had nasty-looking floodwater
+and were kicking small rocks over their falls.
+We did a lot of non-canyoning activities,
+including going to a &lt;a href="https://www.sanjuancountyhistoricalsociety.org/index.html"&gt;super awesome mining museum&lt;/a&gt;
+and eating funnel cake.
+I tried to do a day hike,
+but couldn't handle the altitude and turned back.&lt;/p&gt;
+&lt;p&gt;Regardless, we managed to get in a handful of canyons.
+There was a super fun canyon called &lt;a href="http://ropewiki.com/Cascade_Creek_(Durango_Waterpark)"&gt;Durango Waterpark&lt;/a&gt;.
+After the first run, we learned that the whole loop only took about 30 minutes, and that all of the obstacles were safe to jump.
+We went back a few days later without any packs or technical gear.
+Josh, Maya, and I climbed down to the creek while Larissa waited in the car.
+After about 20 minutes of hiking downstream,
+we encountered a bridge that we hadn't passed before
+and realized that we had dropped into the wrong canyon.
+We went back upstream 20 minutes and found a very worried
+Larissa, who had also realized we had dropped into the wrong place.
+Thankfully, it is hard to make any committing moves without any gear.
+We went to the correct canyon and ran it twice through.&lt;/p&gt;
+&lt;p&gt;I have video footage from this trip, but I haven't had time to edit it yet.
+Once I'm done with the highlights reel, I will post it here.&lt;/p&gt;</content><category term="canyons"></category><category term="ropes"></category></entry><entry><title>Summerfest 2018</title><link href="https://eric.van.al/summerfest-2018.html" rel="alternate"></link><published>2018-08-05T00:00:00-04:00</published><updated>2018-08-05T00:00:00-04:00</updated><author><name></name></author><id>tag:eric.van.al,2018-08-05:/summerfest-2018.html</id><summary type="html">&lt;p&gt;Banks, Maggie and I went to Summerfest at Skydive Chicago,
+where we made a bunch of jumps and generally had a great time.
+Notably, we put together two &lt;a href="https://alum.mit.edu/slice/its-bird-its-plane-its-mit-skydivers"&gt;MIT record jumps&lt;/a&gt;
+from the assortment of alums who happened to be attending.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/2018-summerfest/sky.jpg" title="MIT skydivers forming a T in the sky"&gt;&lt;img alt="" src="https://eric.van.al/media/2018-summerfest/thumbnails/_x320/sky.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/2018-summerfest/ground.jpg" title="Group photo of the MIT record participants"&gt;&lt;img alt="" src="https://eric.van.al/media/2018-summerfest/thumbnails/_x320/ground.jpg"&gt;&lt;/a&gt;
+</summary><content type="html">&lt;p&gt;Banks, Maggie and I went to Summerfest at Skydive Chicago,
+where we made a bunch of jumps and generally had a great time.
+Notably, we put together two &lt;a href="https://alum.mit.edu/slice/its-bird-its-plane-its-mit-skydivers"&gt;MIT record jumps&lt;/a&gt;
+from the assortment of alums who happened to be attending.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/2018-summerfest/sky.jpg" title="MIT skydivers forming a T in the sky"&gt;&lt;img alt="" src="https://eric.van.al/media/2018-summerfest/thumbnails/_x320/sky.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/2018-summerfest/ground.jpg" title="Group photo of the MIT record participants"&gt;&lt;img alt="" src="https://eric.van.al/media/2018-summerfest/thumbnails/_x320/ground.jpg"&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;After assembling the 11-way belly jump,
+Banks organized a 5-way head down jump
+with myself, Maggie, Swati, and Steve,
+with JRuss on camera.
+Steve didn't have much head down experience,
+so we mostly built around him.
+On break-off, he forgot to turn 180 before tracking away
+and plowed right into me.
+Everyone was fine and we laughed it off on the ground.
+He definitely got some shit from JRuss.&lt;/p&gt;
+&lt;p&gt;I have a handful of videos clips from this event, and will probably post them here eventually.&lt;/p&gt;</content><category term="skydiving"></category></entry><entry><title>Hard canyons in Zion</title><link href="https://eric.van.al/hard-canyons-in-zion.html" rel="alternate"></link><published>2018-06-05T00:00:00-04:00</published><updated>2018-06-05T00:00:00-04:00</updated><author><name></name></author><id>tag:eric.van.al,2018-06-05:/hard-canyons-in-zion.html</id><summary type="html">&lt;p&gt;Zach, dlaw, Ionna and I went to Zion in the summer 2018.
+After doing a lot of beginner "intro to canyoning" trips,
+it was nice to power through some of the harder canyons in that area.
+We even ran into Itaru near the end of our trip, and he joined us for our last canyon.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/2018-zion/rappel.jpg" title="Zach and dlaw"&gt;&lt;img alt="" src="https://eric.van.al/media/2018-zion/thumbnails/_x320/rappel.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/2018-zion/imlay-final.jpg" title="Zach on the final rappel of Imlay"&gt;&lt;img alt="" src="https://eric.van.al/media/2018-zion/thumbnails/_x320/imlay-final.jpg"&gt;&lt;/a&gt;
+</summary><content type="html">&lt;p&gt;Zach, dlaw, Ionna and I went to Zion in the summer 2018.
+After doing a lot of beginner "intro to canyoning" trips,
+it was nice to power through some of the harder canyons in that area.
+We even ran into Itaru near the end of our trip, and he joined us for our last canyon.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/2018-zion/rappel.jpg" title="Zach and dlaw"&gt;&lt;img alt="" src="https://eric.van.al/media/2018-zion/thumbnails/_x320/rappel.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/2018-zion/imlay-final.jpg" title="Zach on the final rappel of Imlay"&gt;&lt;img alt="" src="https://eric.van.al/media/2018-zion/thumbnails/_x320/imlay-final.jpg"&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;The most memorable canyon was definitely &lt;a href="https://www.canyoneeringusa.com/zion/technical/imlay-sneak-route"&gt;Imlay&lt;/a&gt;.
+The canyon has 40+ obstacles. It was our first time doing pothole escapes, and we weren't planning on taking more than one day
+(though we were prepared to do an emergency bivvy.)&lt;/p&gt;
+&lt;p&gt;After a strenuous entrance hike, the first obstacle was the "trash compactor",
+named after the &lt;a href="https://youtu.be/7U3Oti2L8S4?t=105"&gt;scene from star wars&lt;/a&gt;.
+After rappelling into deep water in a narrow slot, you are faced with a swim of about 100 feet.
+The catch is that the path is completely blocked up with floating logs and debris.
+The logs are too large to just shove out of the way,
+but not bouyant enough to stand on.
+The only way to make forward progress is to tread water,
+while slowly rearranging the logs to make forward progress.&lt;/p&gt;
+&lt;p&gt;This first obstacle took us 40 minutes,
+and we were absolutely convinced that we were out of our league.
+We were mentally preparing to spend the the better half of a week slowly making our way through
+forty more trash compactors.
+Thankfully, the rest of the obstacles were much more straightforward.
+The canyon was fun and challenging,
+and we made it out before nightfall.&lt;/p&gt;
+&lt;p&gt;The canyon finishes with a 100' free-hanging rappel into the narrows.
+There were tourists directly in the fall line of our rope,
+so we flaked the rope and lowered it down hand-over-hand so as to not drop it on their heads.
+They didn't even notice that there were people above them
+until the first person was nearly finished with the rappel.&lt;/p&gt;
+&lt;h2&gt;Video&lt;/h2&gt;
+&lt;iframe id="ytplayer" type="text/html" width="640" height="360"
+  src="https://www.youtube.com/embed/2L--mIN1uF8"
+  frameborder="0"&gt;&lt;/iframe&gt;
+
+&lt;p&gt;List of canyons we did:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.canyoneeringusa.com/zion/technical/keyhole"&gt;Keyhole&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.canyoneeringusa.com/zion/technical/middle-echo"&gt;Echo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.canyoneeringusa.com/zion/technical/imlay-sneak-route"&gt;Imlay&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.canyoneeringusa.com/zion/technical/spry"&gt;Spry&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.canyoneeringusa.com/zion/technical/orderville"&gt;Orderville&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.canyoneeringusa.com/zion/technical/pine-creek"&gt;Pine Creek&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="canyons"></category><category term="ropes"></category></entry><entry><title>SCUBA in Cancun</title><link href="https://eric.van.al/scuba-in-cancun.html" rel="alternate"></link><published>2018-04-10T00:00:00-04:00</published><updated>2018-04-10T00:00:00-04:00</updated><author><name></name></author><id>tag:eric.van.al,2018-04-10:/scuba-in-cancun.html</id><summary type="html">&lt;p&gt;In April of 2018, some friends and I went to do some SCUBA diving in Cancun and Cozumel.
+We had five days of great diving, including seeing the MUSA underwater museum and doing some
+cavern diving in the cenotes.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/2018-cancun/turtle.jpg" title="Larissa and a turtle"&gt;&lt;img alt="" src="https://eric.van.al/media/2018-cancun/thumbnails/_x320/turtle.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/2018-cancun/cenote.jpg" title="Inside a cenote looking out"&gt;&lt;img alt="" src="https://eric.van.al/media/2018-cancun/thumbnails/_x320/cenote.jpg"&gt;&lt;/a&gt;
+</summary><content type="html">&lt;p&gt;In April of 2018, some friends and I went to do some SCUBA diving in Cancun and Cozumel.
+We had five days of great diving, including seeing the MUSA underwater museum and doing some
+cavern diving in the cenotes.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/2018-cancun/turtle.jpg" title="Larissa and a turtle"&gt;&lt;img alt="" src="https://eric.van.al/media/2018-cancun/thumbnails/_x320/turtle.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/2018-cancun/cenote.jpg" title="Inside a cenote looking out"&gt;&lt;img alt="" src="https://eric.van.al/media/2018-cancun/thumbnails/_x320/cenote.jpg"&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;h2&gt;Video&lt;/h2&gt;
+&lt;iframe id="ytplayer" type="text/html" width="640" height="360"
+  src="https://www.youtube.com/embed/n6kJ8dX20CY"
+  frameborder="0"&gt;&lt;/iframe&gt;</content><category term="scuba"></category></entry><entry><title>keygen</title><link href="https://eric.van.al/keygen.html" rel="alternate"></link><published>2017-06-24T00:00:00-04:00</published><updated>2017-06-24T00:00:00-04:00</updated><author><name></name></author><id>tag:eric.van.al,2017-06-24:/keygen.html</id><summary type="html">&lt;p&gt;keygen is the successor to &lt;a href="https://eric.van.al/3d-printing-schlage-primus-keys.html"&gt;the work I did in 2013 on 3D printing keys&lt;/a&gt;.
+The code is a complete rewrite, and now supports many different types of keys.
+There is also a fairly easy-to-follow process for modelling keys that do not yet exist in the keygen database.
+The tool itself is still in OpenSCAD (with a python wrapper), but you can find a web interface at &lt;a href="https://keygen.co"&gt;keygen.co&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="The keygen logo" src="https://eric.van.al/media/keygen/thumbnails/_x320/logo.png"&gt;&lt;/p&gt;
+&lt;p&gt;</summary><content type="html">&lt;p&gt;keygen is the successor to &lt;a href="https://eric.van.al/3d-printing-schlage-primus-keys.html"&gt;the work I did in 2013 on 3D printing keys&lt;/a&gt;.
+The code is a complete rewrite, and now supports many different types of keys.
+There is also a fairly easy-to-follow process for modelling keys that do not yet exist in the keygen database.
+The tool itself is still in OpenSCAD (with a python wrapper), but you can find a web interface at &lt;a href="https://keygen.co"&gt;keygen.co&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="The keygen logo" src="https://eric.van.al/media/keygen/thumbnails/_x320/logo.png"&gt;&lt;/p&gt;
+&lt;p&gt;
+The key modelling process leverages inkscape for vector graphics creation.
+Typically, an OpenSCAD model takes in two polygons: the stamped shape of the key blank,
+and the shape of the shape of the key tip (warding.)
+You may also provide an additional vector layer for engravings that are stamped on the key, but this is just for aesthetics.
+All of these are fairly easy to generate from documentation or pictures of keys,
+and there is a detailed guide &lt;a href="https://github.com/ervanalb/keygen/blob/master/doc/how_to_model_keys.md"&gt;here&lt;/a&gt; on how to do it.
+With well-done vector outlines, keygen can create highly-realistic models, including the bow and milling artifacts.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/keygen/inkscape.png" title="Tracing key pictures in inkscape"&gt;&lt;img alt="" src="https://eric.van.al/media/keygen/thumbnails/_x320/inkscape.png"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/keygen/model.png" title="An OpenSCAD model of a key generated from those pictures"&gt;&lt;img alt="" src="https://eric.van.al/media/keygen/thumbnails/_x320/model.png"&gt;&lt;/a&gt;&lt;/p&gt;</content><category term="software"></category><category term="security"></category></entry><entry><title>Furniture</title><link href="https://eric.van.al/furniture.html" rel="alternate"></link><published>2016-09-14T00:00:00-04:00</published><updated>2016-09-14T00:00:00-04:00</updated><author><name></name></author><id>tag:eric.van.al,2016-09-14:/furniture.html</id><summary type="html">&lt;p&gt;When I first moved into the Nightosphere in 2014, there was no furniture. Thankfully, EC rush had just finished, so there was free wood. The living room furniture was built entirely with recycled lumber from stuff like the &lt;a href="https://www.youtube.com/watch?v=WvcMsrUJbiY"&gt;roller coaster&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Over the next few years, I continued to build furniture in my basement.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/furniture/cabinet_half_glued.jpg" title="Half of the cabinet"&gt;&lt;img alt="" src="https://eric.van.al/media/furniture/thumbnails/_x320/cabinet_half_glued.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/furniture/cabinet_full.jpg" title="Cabinet full of gear"&gt;&lt;img alt="" src="https://eric.van.al/media/furniture/thumbnails/_x320/cabinet_full.jpg"&gt;&lt;/a&gt;
+</summary><content type="html">&lt;p&gt;When I first moved into the Nightosphere in 2014, there was no furniture. Thankfully, EC rush had just finished, so there was free wood. The living room furniture was built entirely with recycled lumber from stuff like the &lt;a href="https://www.youtube.com/watch?v=WvcMsrUJbiY"&gt;roller coaster&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Over the next few years, I continued to build furniture in my basement.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/furniture/cabinet_half_glued.jpg" title="Half of the cabinet"&gt;&lt;img alt="" src="https://eric.van.al/media/furniture/thumbnails/_x320/cabinet_half_glued.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/furniture/cabinet_full.jpg" title="Cabinet full of gear"&gt;&lt;img alt="" src="https://eric.van.al/media/furniture/thumbnails/_x320/cabinet_full.jpg"&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;I have since left the Nightosphere, and all of the furniture except for my bed has been thrown out.&lt;/p&gt;
+&lt;h2&gt;Kingsman Cabinet&lt;/h2&gt;
+&lt;p&gt;This cabinet holds all my gear. It was inspired by the movie &lt;a href="http://www.moviechambers.com/wp-content/uploads/2015/02/Kingsman-The-Secret-Service.jpg"&gt;Kingsman&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/furniture/cabinet_closed.jpg" title="Finished cabinet, closed"&gt;&lt;img alt="" src="https://eric.van.al/media/furniture/thumbnails/_x320/cabinet_closed.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/furniture/cabinet_left.jpg" title="Left side"&gt;&lt;img alt="" src="https://eric.van.al/media/furniture/thumbnails/_x320/cabinet_left.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/furniture/cabinet_right.jpg" title="Right side"&gt;&lt;img alt="" src="https://eric.van.al/media/furniture/thumbnails/_x320/cabinet_right.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/furniture/cabinet_first_piece.jpg" title="Gluing on the first piece"&gt;&lt;img alt="" src="https://eric.van.al/media/furniture/thumbnails/_x320/cabinet_first_piece.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/furniture/crazy_clamping.jpg" title="I need to get more clamps"&gt;&lt;img alt="" src="https://eric.van.al/media/furniture/thumbnails/_x320/crazy_clamping.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/furniture/cabinet_stained.jpg" title="Stained"&gt;&lt;img alt="" src="https://eric.van.al/media/furniture/thumbnails/_x320/cabinet_stained.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/furniture/cabinet_open.jpg" title="Cabinet being opened"&gt;&lt;img alt="" src="https://eric.van.al/media/furniture/thumbnails/_x320/cabinet_open.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/furniture/cabinet_wide_open.jpg" title="Cabinet fully open"&gt;&lt;img alt="" src="https://eric.van.al/media/furniture/thumbnails/_x320/cabinet_wide_open.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Floating bed&lt;/h2&gt;
+&lt;p&gt;Now with &lt;a href="https://github.com/ervanalb/lux"&gt;lux-powered&lt;/a&gt; underglow!&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/furniture/bed_finished.jpg" title="Completed bed"&gt;&lt;img alt="" src="https://eric.van.al/media/furniture/thumbnails/_x320/bed_finished.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/furniture/bed_lights.mp4" title="Underglow"&gt;&lt;img alt="" src="https://eric.van.al/media/furniture/bed_lights_thumb.gif"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/furniture/bed_lights_dark.mp4" title="Underglow in the dark"&gt;&lt;img alt="" src="https://eric.van.al/media/furniture/bed_lights_dark_thumb.gif"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/furniture/bed_box.jpg" title="Bed stand"&gt;&lt;img alt="" src="https://eric.van.al/media/furniture/thumbnails/_x320/bed_box.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/furniture/bed_deck.jpg" title="Bed deck coming together"&gt;&lt;img alt="" src="https://eric.van.al/media/furniture/thumbnails/_x320/bed_deck.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/furniture/bed_ballast.jpg" title="Bed ballast"&gt;&lt;img alt="" src="https://eric.van.al/media/furniture/thumbnails/_x320/bed_ballast.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/furniture/bed_moulding.jpg" title="Bed moulding being stained"&gt;&lt;img alt="" src="https://eric.van.al/media/furniture/thumbnails/_x320/bed_moulding.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/furniture/bed_moulding_installed.jpg" title="Moulding installed"&gt;&lt;img alt="" src="https://eric.van.al/media/furniture/thumbnails/_x320/bed_moulding_installed.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;EE Desk&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/furniture/new_desk.jpg" title="New desk in place"&gt;&lt;img alt="" src="https://eric.van.al/media/furniture/thumbnails/_x320/new_desk.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/furniture/uhaul.jpg" title="Unloading the U-Haul"&gt;&lt;img alt="" src="https://eric.van.al/media/furniture/thumbnails/_x320/uhaul.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/furniture/new_desk_old_desk.jpg" title="New desk to replace old desk"&gt;&lt;img alt="" src="https://eric.van.al/media/furniture/thumbnails/_x320/new_desk_old_desk.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Living room (2014)&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/furniture/piano_bench.jpg" title="Finished piano bench"&gt;&lt;img alt="" src="https://eric.van.al/media/furniture/thumbnails/_x320/piano_bench.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/furniture/couch.jpg" title="Finished couch minus cushions"&gt;&lt;img alt="" src="https://eric.van.al/media/furniture/thumbnails/_x320/couch.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/furniture/finished_coffee_table.jpg" title="Finished coffee table (already cluttered)"&gt;&lt;img alt="" src="https://eric.van.al/media/furniture/thumbnails/_x320/finished_coffee_table.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/furniture/workshop.jpg" title="Workshop, with piano bench in the front"&gt;&lt;img alt="" src="https://eric.van.al/media/furniture/thumbnails/_x320/workshop.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/furniture/cutting_table.jpg" title="Cutting the coffee table"&gt;&lt;img alt="" src="https://eric.van.al/media/furniture/thumbnails/_x320/cutting_table.jpg"&gt;&lt;/a&gt;&lt;/p&gt;</content><category term="hardware"></category><category term="lights"></category></entry><entry><title>2016 East Side Party</title><link href="https://eric.van.al/2016-east-side-party.html" rel="alternate"></link><published>2016-08-28T00:00:00-04:00</published><updated>2016-08-28T00:00:00-04:00</updated><author><name></name></author><id>tag:eric.van.al,2016-08-28:/2016-east-side-party.html</id><summary type="html">&lt;p&gt;The 2016 East Side Party was lit using lux and VJ'd with Radiance. Sadun, Banti, and Farita put up the display and ran the lights during the party, with technical support from me and zbanks.&lt;/p&gt;
+&lt;p&gt;The display consisted of 480 feet of LED strip containing 4500 individually controlled lights and consuming around 900 watts of power.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/lights/2016/fort3.gif" title="Close-up of fort during the 2016 East Side party"&gt;&lt;img alt="" src="https://eric.van.al/media/lights/2016/fort3.gif"&gt;&lt;/a&gt;
+</summary><content type="html">&lt;p&gt;The 2016 East Side Party was lit using lux and VJ'd with Radiance. Sadun, Banti, and Farita put up the display and ran the lights during the party, with technical support from me and zbanks.&lt;/p&gt;
+&lt;p&gt;The display consisted of 480 feet of LED strip containing 4500 individually controlled lights and consuming around 900 watts of power.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/lights/2016/fort3.gif" title="Close-up of fort during the 2016 East Side party"&gt;&lt;img alt="" src="https://eric.van.al/media/lights/2016/fort3.gif"&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;h2&gt;lux&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://github.com/ervanalb/lux"&gt;lux&lt;/a&gt; rev 8 was used for this party. There was a small production run (50 units) of rev 8. They worked very well, and it is likely that there will be additional production runs as more hardware is needed.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/lights/2016/light_board_front.jpg" title="Front of lux LED strip driver"&gt;&lt;img alt="" src="https://eric.van.al/media/lights/2016/thumbnails/_x320/light_board_front.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/lights/2016/light_board_back.jpg" title="Back of lux LED strip driver"&gt;&lt;img alt="" src="https://eric.van.al/media/lights/2016/thumbnails/_x320/light_board_back.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/lights/2016/bandsaw.gif" title="Cutting stock for heatsinks"&gt;&lt;img alt="" src="https://eric.van.al/media/lights/2016/bandsaw.gif"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/lights/2016/milling.gif" title="Milling heatsinks"&gt;&lt;img alt="" src="https://eric.van.al/media/lights/2016/milling.gif"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/lights/2016/lasercutter.gif" title="Laser cutting thermal pads"&gt;&lt;img alt="" src="https://eric.van.al/media/lights/2016/lasercutter.gif"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/lights/2016/assembled_light_boards.jpg" title="Assembled lux LED strip drivers"&gt;&lt;img alt="" src="https://eric.van.al/media/lights/2016/thumbnails/_x320/assembled_light_boards.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Radiance&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://radiance.video"&gt;Radiance&lt;/a&gt; composites patterns written in GLSL to create music-reactive lighting effects.
+This party is arguably the first use of "modern" radiance, implementing pattern composition and a single "intensity" slider.
+However, it only had support for four decks of four single-input patterns each, and only two of those decks at a time could be overlaid using simple alpha-compositing
+The success of Radiance at this party has led me to develop it into fully-featured &lt;a href="https://en.wikipedia.org/wiki/VJing"&gt;VJ&lt;/a&gt; software. Regardless, many issues with the C / SDL version led to it being rewritten using the Qt application framework.&lt;/p&gt;
+&lt;h2&gt;The Party&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/lights/2016/full_system_test.gif" title="Full system test before the party"&gt;&lt;img alt="" src="https://eric.van.al/media/lights/2016/full_system_test.gif"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/lights/2016/lux_control_center.jpg" title="The lux control board"&gt;&lt;img alt="" src="https://eric.van.al/media/lights/2016/thumbnails/_x320/lux_control_center.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/lights/2016/fort_lighting_test.jpg" title="Testing the display before the party"&gt;&lt;img alt="" src="https://eric.van.al/media/lights/2016/thumbnails/_x320/fort_lighting_test.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/lights/2016/fort1.gif" title="Fort during the party"&gt;&lt;img alt="" src="https://eric.van.al/media/lights/2016/fort1.gif"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/lights/2016/fort2.gif" title="Fort during the party"&gt;&lt;img alt="" src="https://eric.van.al/media/lights/2016/fort2.gif"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/lights/2016/fort4.gif" title="Fort during the party"&gt;&lt;img alt="" src="https://eric.van.al/media/lights/2016/fort4.gif"&gt;&lt;/a&gt;&lt;/p&gt;</content><category term="radiance"></category><category term="lights"></category><category term="hardware"></category><category term="software"></category></entry><entry><title>Canyoning in the Sierras</title><link href="https://eric.van.al/canyoning-in-the-sierras.html" rel="alternate"></link><published>2016-08-16T00:00:00-04:00</published><updated>2016-08-16T00:00:00-04:00</updated><author><name></name></author><id>tag:eric.van.al,2016-08-16:/canyoning-in-the-sierras.html</id><summary type="html">&lt;p&gt;In summer of 2016, we took a trip to the Sierras in California to descend some canyons.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/canyoning/down_canyon.jpg" title="The view down-canyon"&gt;&lt;img alt="" src="https://eric.van.al/media/canyoning/thumbnails/_x320/down_canyon.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/canyoning/teacups.jpg" title="7 Teacups"&gt;&lt;img alt="" src="https://eric.van.al/media/canyoning/thumbnails/_x320/teacups.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;</summary><content type="html">&lt;p&gt;In summer of 2016, we took a trip to the Sierras in California to descend some canyons.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/canyoning/down_canyon.jpg" title="The view down-canyon"&gt;&lt;img alt="" src="https://eric.van.al/media/canyoning/thumbnails/_x320/down_canyon.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/canyoning/teacups.jpg" title="7 Teacups"&gt;&lt;img alt="" src="https://eric.van.al/media/canyoning/thumbnails/_x320/teacups.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Collectively, we did:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://ropewiki.com/Basin_Creek"&gt;Basin Creek&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://ropewiki.com/Pittman_Creek_(Another_Dam_Canyon)"&gt;Pittman Creek&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://ropewiki.com/Jump_Trip_(Upper)"&gt;Upper Jump&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://ropewiki.com/Big_Creek_(Canyon_of_the_Dammed)"&gt;Big Creek&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://ropewiki.com/Shaver_Cut_(Upper_Stevenson_Creek)"&gt;Shaver's Cut&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://ropewiki.com/Jump_Trip_(Lower)"&gt;Lower Jump&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://ropewiki.com/Jose_Creek"&gt;Jose Creek&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://ropewiki.com/Seven_Teacups"&gt;7 Teacups&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There aren't many pictures because I was using my phone, which is not waterproof. Keep this in mind when viewing some of the shots I did get!&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/canyoning/up_canyon.jpg" title="The view up-canyon"&gt;&lt;img alt="" src="https://eric.van.al/media/canyoning/thumbnails/_x240/up_canyon.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/canyoning/waterfall.jpg" title="A waterfall"&gt;&lt;img alt="" src="https://eric.van.al/media/canyoning/thumbnails/_x240/waterfall.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/canyoning/eric_rock.jpg" title="Eric sitting on a rock"&gt;&lt;img alt="" src="https://eric.van.al/media/canyoning/thumbnails/_x240/eric_rock.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/canyoning/crystal.jpg" title="Crystal"&gt;&lt;img alt="" src="https://eric.van.al/media/canyoning/thumbnails/_x240/crystal.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/canyoning/kamal_liz.jpg" title="Kamal and Liz"&gt;&lt;img alt="" src="https://eric.van.al/media/canyoning/thumbnails/_x240/kamal_liz.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/canyoning/sabrina_maya_becca.jpg" title="Sabrina, Maya, Becca"&gt;&lt;img alt="" src="https://eric.van.al/media/canyoning/thumbnails/_x240/sabrina_maya_becca.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/canyoning/zbanks.jpg" title="zbanks"&gt;&lt;img alt="" src="https://eric.van.al/media/canyoning/thumbnails/_x240/zbanks.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/canyoning/thumbs_up.gif" title="Thumbs up"&gt;&lt;img alt="" src="https://eric.van.al/media/canyoning/thumbs_up.gif"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/canyoning/sadun_waterfall.gif" title="Sadun descending a waterfall"&gt;&lt;img alt="" src="https://eric.van.al/media/canyoning/sadun_waterfall.gif"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/canyoning/vicki_waterfall.gif" title="Vicki descending a waterfall"&gt;&lt;img alt="" src="https://eric.van.al/media/canyoning/vicki_waterfall.gif"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/canyoning/graceful.gif" title="Crystal being graceful"&gt;&lt;img alt="" src="https://eric.van.al/media/canyoning/graceful.gif"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/canyoning/zbanks_flop.gif" title="Zach flopping"&gt;&lt;img alt="" src="https://eric.van.al/media/canyoning/zbanks_flop.gif"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/canyoning/crystal_jump.gif" title="Crystal jumping (Upper jump)"&gt;&lt;img alt="" src="https://eric.van.al/media/canyoning/crystal_jump.gif"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/canyoning/maya_jump.gif" title="Maya jumping (Upper jump)"&gt;&lt;img alt="" src="https://eric.van.al/media/canyoning/maya_jump.gif"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/canyoning/eric_jump.gif" title="Eric jumping (Upper jump)"&gt;&lt;img alt="" src="https://eric.van.al/media/canyoning/eric_jump.gif"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/canyoning/maya_rappel.gif" title="Maya rappelling (Upper jump)"&gt;&lt;img alt="" src="https://eric.van.al/media/canyoning/maya_rappel.gif"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/canyoning/crystal_rappel.gif" title="Crystal rappelling (Upper jump)"&gt;&lt;img alt="" src="https://eric.van.al/media/canyoning/crystal_rappel.gif"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/canyoning/zbanks_rappel.gif" title="Zach rappelling (Upper jump)"&gt;&lt;img alt="" src="https://eric.van.al/media/canyoning/zbanks_rappel.gif"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/canyoning/maya.jpg" title="Maya"&gt;&lt;img alt="" src="https://eric.van.al/media/canyoning/thumbnails/_x240/maya.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/canyoning/maya_jump_teacups.gif" title="Maya jumping (7 teacups)"&gt;&lt;img alt="" src="https://eric.van.al/media/canyoning/maya_jump_teacups.gif"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/canyoning/zbanks_jump_teacups.gif" title="Zach jumping (7 teacups)"&gt;&lt;img alt="" src="https://eric.van.al/media/canyoning/zbanks_jump_teacups.gif"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/canyoning/zbanks_maya.jpg" title="Zach and Maya chilling in the pool"&gt;&lt;img alt="" src="https://eric.van.al/media/canyoning/thumbnails/_x240/zbanks_maya.jpg"&gt;&lt;/a&gt;&lt;/p&gt;</content><category term="canyons"></category><category term="ropes"></category></entry><entry><title>Early years of skydiving</title><link href="https://eric.van.al/early-years-of-skydiving.html" rel="alternate"></link><published>2016-06-26T00:00:00-04:00</published><updated>2016-06-26T00:00:00-04:00</updated><author><name></name></author><id>tag:eric.van.al,2016-06-26:/early-years-of-skydiving.html</id><summary type="html">&lt;p&gt;Landing in planes is scary, so I usually leave before that happens.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/skydiving/landing.jpg" title="Landing under my Pilot 150"&gt;&lt;img alt="" src="https://eric.van.al/media/skydiving/thumbnails/_x320/landing.jpg"&gt;&lt;/a&gt;
+</summary><content type="html">&lt;p&gt;Landing in planes is scary, so I usually leave before that happens.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/skydiving/landing.jpg" title="Landing under my Pilot 150"&gt;&lt;img alt="" src="https://eric.van.al/media/skydiving/thumbnails/_x320/landing.jpg"&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/skydiving/belly.jpg" title="Student gear"&gt;&lt;img alt="" src="https://eric.van.al/media/skydiving/thumbnails/_x320/belly.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/skydiving/storm.jpg" title="My first canopy: Storm 170"&gt;&lt;img alt="" src="https://eric.van.al/media/skydiving/thumbnails/_x320/storm.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/skydiving/angle.jpg" title="Angle flying"&gt;&lt;img alt="" src="https://eric.van.al/media/skydiving/thumbnails/_x320/angle.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/skydiving/angle_2.jpg" title="More angle"&gt;&lt;img alt="" src="https://eric.van.al/media/skydiving/thumbnails/_x320/angle_2.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Videos&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=P6N6KaRBHNU"&gt;AFF: Cat D&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=ch7c82DToJU"&gt;Jump 48&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=0U1HeNA7ClU"&gt;Hybrid Attempt&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=2xVc4HfttJs"&gt;Angle Flying&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="skydiving"></category></entry><entry><title>Boat</title><link href="https://eric.van.al/boat.html" rel="alternate"></link><published>2016-06-16T00:00:00-04:00</published><updated>2016-06-16T00:00:00-04:00</updated><author><name></name></author><id>tag:eric.van.al,2016-06-16:/boat.html</id><summary type="html">&lt;p&gt;This is a page about my boat! It is solar-powered and packs up into a cart that can be carried by one person.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/boat/boat_on_dock.jpg" title=""&gt;&lt;img alt="" src="https://eric.van.al/media/boat/thumbnails/_x320/boat_on_dock.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/boat/boat_on_cart.jpg" title=""&gt;&lt;img alt="" src="https://eric.van.al/media/boat/thumbnails/_x320/boat_on_cart.jpg"&gt;&lt;/a&gt;
+</summary><content type="html">&lt;p&gt;This is a page about my boat! It is solar-powered and packs up into a cart that can be carried by one person.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/boat/boat_on_dock.jpg" title=""&gt;&lt;img alt="" src="https://eric.van.al/media/boat/thumbnails/_x320/boat_on_dock.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/boat/boat_on_cart.jpg" title=""&gt;&lt;img alt="" src="https://eric.van.al/media/boat/thumbnails/_x320/boat_on_cart.jpg"&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;This project had a few goals:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Boat should be more robust than a cheap inflatable boat (hard hulls)&lt;/li&gt;
+&lt;li&gt;Disassembled boat should fit in a car&lt;/li&gt;
+&lt;li&gt;Disassembled boat can be taken on the T&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The original design used orange home depot buckets for floatation. This didn't provide quite enough boyancy to be comfortable, so I switched to 12-gallon totes. Scroll down for the old design and construction photos.&lt;/p&gt;
+&lt;h2&gt;Boat trip with Adrian and Larissa&lt;/h2&gt;
+&lt;p&gt;Here are some pictures of a boat trip I took with Adrian and Larissa (and Adrian's boat)&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/boat/getting_ready.jpg" title="Adrian getting ready to go"&gt;&lt;img alt="" src="https://eric.van.al/media/boat/thumbnails/_x320/getting_ready.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/boat/adrian_larissa.jpg" title="Adrian and Larissa on Adrian's boat"&gt;&lt;img alt="" src="https://eric.van.al/media/boat/thumbnails/_x320/adrian_larissa.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/boat/grumpy_adrian.jpg" title="Adrian being grumpy because it's raining"&gt;&lt;img alt="" src="https://eric.van.al/media/boat/thumbnails/_x320/grumpy_adrian.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/boat/museum_of_science.jpg" title="Adrian and the museum of science"&gt;&lt;img alt="" src="https://eric.van.al/media/boat/thumbnails/_x320/museum_of_science.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/boat/captain_larissa.jpg" title="Larissa captaining my boat"&gt;&lt;img alt="" src="https://eric.van.al/media/boat/thumbnails/_x320/captain_larissa.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/boat/adrian_boston.jpg" title="Adrian being dramatic"&gt;&lt;img alt="" src="https://eric.van.al/media/boat/thumbnails/_x320/adrian_boston.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/boat/sad_adrian.jpg" title="Adrian being sad because the wheel fell off his cart"&gt;&lt;img alt="" src="https://eric.van.al/media/boat/thumbnails/_x320/sad_adrian.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Rev 2&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/boat/eric_sabrina_selfie.jpg" title="Me and Sabrina taking a boat selfie"&gt;&lt;img alt="" src="https://eric.van.al/media/boat/thumbnails/_x320/eric_sabrina_selfie.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/boat/locks.jpg" title="The locks we go through to get to the harbor"&gt;&lt;img alt="" src="https://eric.van.al/media/boat/thumbnails/_x320/locks.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/boat/boat_numbers.jpg" title="Legit boat numbers"&gt;&lt;img alt="" src="https://eric.van.al/media/boat/thumbnails/_x320/boat_numbers.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/boat/light_test.jpg" title="Testing the lights"&gt;&lt;img alt="" src="https://eric.van.al/media/boat/thumbnails/_x320/light_test.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Rev 1 / Construction&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/boat/laser.gif" title="Laser-cutting the bucket holders"&gt;&lt;img alt="" src="https://eric.van.al/media/boat/laser.gif"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/boat/lathe.gif" title="Turning down a PVC fitting"&gt;&lt;img alt="" src="https://eric.van.al/media/boat/lathe.gif"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/boat/assembling_bucket_holders.jpg" title="These pieces were laser-cut but need to be glued together"&gt;&lt;img alt="" src="https://eric.van.al/media/boat/thumbnails/_x320/assembling_bucket_holders.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/boat/bucket_holders.jpg" title="The stack of finished bucket holders"&gt;&lt;img alt="" src="https://eric.van.al/media/boat/thumbnails/_x320/bucket_holders.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/boat/webbing_strap.jpg" title="Original idea for holding on buckets was to use webbing straps"&gt;&lt;img alt="" src="https://eric.van.al/media/boat/thumbnails/_x320/webbing_strap.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/boat/pvc_pin.jpg" title="PVC fittings will be held with pins"&gt;&lt;img alt="" src="https://eric.van.al/media/boat/thumbnails/_x320/pvc_pin.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/boat/bag_of_boat.jpg" title="Bag of boat"&gt;&lt;img alt="" src="https://eric.van.al/media/boat/thumbnails/_x320/bag_of_boat.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/boat/prototype_attachment.jpg" title="Prototyping rubber strap attachment system"&gt;&lt;img alt="" src="https://eric.van.al/media/boat/thumbnails/_x320/prototype_attachment.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/boat/boat_rev_1_construction.jpg" title="Boat rev 1 construction"&gt;&lt;img alt="" src="https://eric.van.al/media/boat/thumbnails/_x320/boat_rev_1_construction.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/boat/cart_rev_1.jpg" title="Cart rev 1"&gt;&lt;img alt="" src="https://eric.van.al/media/boat/thumbnails/_x320/cart_rev_1.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/boat/boat_rev_1.jpg" title="Boat rev 1 before maiden voyage"&gt;&lt;img alt="" src="https://eric.van.al/media/boat/thumbnails/_x320/boat_rev_1.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/boat/boat_after_boating.jpg" title="Boat rev 1 after maiden voyage"&gt;&lt;img alt="" src="https://eric.van.al/media/boat/thumbnails/_x320/boat_after_boating.jpg"&gt;&lt;/a&gt;&lt;/p&gt;</content><category term="hardware"></category><category term="vehicles"></category></entry><entry><title>lens</title><link href="https://eric.van.al/lens.html" rel="alternate"></link><published>2015-08-06T00:00:00-04:00</published><updated>2015-08-06T00:00:00-04:00</updated><author><name></name></author><id>tag:eric.van.al,2015-08-06:/lens.html</id><summary type="html">&lt;p&gt;&lt;em&gt;lens&lt;/em&gt; stands for "live editing of network streams." It is a framework that allows you to tap live cabling for inspection and injection.
+With &lt;em&gt;lens&lt;/em&gt;, you can loop surveillance cameras, flip the &lt;a href="http://www.ex-parrot.com/pete/upside-down-ternet.html"&gt;internet upside down&lt;/a&gt;, and recreate &lt;a href="https://xkcd.com/341/"&gt;this comic&lt;/a&gt;.
+You can watch us do all of those things in our &lt;a href="http://www.youtube.com/watch?v=RoOqznZUClI"&gt;Defcon talk&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/lens/2.jpg" title=""&gt;&lt;img alt="" src="https://eric.van.al/media/lens/thumbnails/_x320/2.jpg"&gt;&lt;/a&gt;
+</summary><content type="html">&lt;p&gt;&lt;em&gt;lens&lt;/em&gt; stands for "live editing of network streams." It is a framework that allows you to tap live cabling for inspection and injection.
+With &lt;em&gt;lens&lt;/em&gt;, you can loop surveillance cameras, flip the &lt;a href="http://www.ex-parrot.com/pete/upside-down-ternet.html"&gt;internet upside down&lt;/a&gt;, and recreate &lt;a href="https://xkcd.com/341/"&gt;this comic&lt;/a&gt;.
+You can watch us do all of those things in our &lt;a href="http://www.youtube.com/watch?v=RoOqznZUClI"&gt;Defcon talk&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/lens/2.jpg" title=""&gt;&lt;img alt="" src="https://eric.van.al/media/lens/thumbnails/_x320/2.jpg"&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;iframe id="ytplayer" type="text/html" width="640" height="360"
+  src="https://www.youtube.com/embed/RoOqznZUClI"
+  frameborder="0"&gt;&lt;/iframe&gt;
+
+&lt;p&gt;You may also want to check out the &lt;a href="https://github.com/ervanalb/lens/blob/master/docs/LENS_DEFCON_23_slides.pdf"&gt;slides&lt;/a&gt; or &lt;a href="https://github.com/ervanalb/lens/blob/master/docs/lens_whitepaper.pdf"&gt;whitepaper&lt;/a&gt;. The bulk of this project's documentation lives on &lt;a href="https://github.com/ervanalb/lens"&gt;Github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/lens/1.jpg" title=""&gt;&lt;img alt="" src="https://eric.van.al/media/lens/thumbnails/_x320/1.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/lens/3.jpg" title=""&gt;&lt;img alt="" src="https://eric.van.al/media/lens/thumbnails/_x320/3.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/lens/4.jpg" title=""&gt;&lt;img alt="" src="https://eric.van.al/media/lens/thumbnails/_x320/4.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/lens/5.jpg" title=""&gt;&lt;img alt="" src="https://eric.van.al/media/lens/thumbnails/_x320/5.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/lens/6.jpg" title=""&gt;&lt;img alt="" src="https://eric.van.al/media/lens/thumbnails/_x320/6.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/lens/7.jpg" title=""&gt;&lt;img alt="" src="https://eric.van.al/media/lens/thumbnails/_x320/7.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/lens/8.jpg" title=""&gt;&lt;img alt="" src="https://eric.van.al/media/lens/thumbnails/_x320/8.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/lens/9.jpg" title=""&gt;&lt;img alt="" src="https://eric.van.al/media/lens/thumbnails/_x320/9.jpg"&gt;&lt;/a&gt;&lt;/p&gt;</content><category term="security"></category><category term="hardware"></category><category term="software"></category><category term="defcon"></category></entry><entry><title>Second Floor</title><link href="https://eric.van.al/second-floor.html" rel="alternate"></link><published>2013-11-11T00:00:00-05:00</published><updated>2013-11-11T00:00:00-05:00</updated><author><name></name></author><id>tag:eric.van.al,2013-11-11:/second-floor.html</id><summary type="html">&lt;p&gt;In college, I decided to build a second floor in my dorm room. This effectively doubled the amount of cruft I could hoard, plus kept my first floor free of clutter (mostly.)&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/second_floor/first_floor.jpg" title="The first floor, with the second floor fully up"&gt;&lt;img alt="" src="https://eric.van.al/media/second_floor/thumbnails/_x320/first_floor.jpg"&gt;&lt;/a&gt;
+</summary><content type="html">&lt;p&gt;In college, I decided to build a second floor in my dorm room. This effectively doubled the amount of cruft I could hoard, plus kept my first floor free of clutter (mostly.)&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/second_floor/first_floor.jpg" title="The first floor, with the second floor fully up"&gt;&lt;img alt="" src="https://eric.van.al/media/second_floor/thumbnails/_x320/first_floor.jpg"&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;I would occasionally take it down to avoid detection by the house manager. These photos document that process.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/second_floor/support_beam.jpg" title="The beam that supports the second floor, and first floor fluorescent lighting"&gt;&lt;img alt="" src="https://eric.van.al/media/second_floor/thumbnails/_x320/support_beam.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/second_floor/bed.jpg" title="My bed on the (otherwise empty) second floor"&gt;&lt;img alt="" src="https://eric.van.al/media/second_floor/thumbnails/_x320/bed.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/second_floor/outlets.jpg" title="Outlets on the second floor"&gt;&lt;img alt="" src="https://eric.van.al/media/second_floor/thumbnails/_x320/outlets.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/second_floor/staircase.jpg" title="Staircase"&gt;&lt;img alt="" src="https://eric.van.al/media/second_floor/thumbnails/_x320/staircase.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/second_floor/webbing.jpg" title="Webbing for suspending the second floor from the ceiling, allowing for the removal of the center support beam"&gt;&lt;img alt="" src="https://eric.van.al/media/second_floor/thumbnails/_x320/webbing.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/second_floor/lightswitch.jpg" title="Upstairs and downstairs lightswitches"&gt;&lt;img alt="" src="https://eric.van.al/media/second_floor/thumbnails/_x320/lightswitch.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/second_floor/half_second_floor.jpg" title="Second floor half assembled"&gt;&lt;img alt="" src="https://eric.van.al/media/second_floor/thumbnails/_x320/half_second_floor.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/second_floor/no_second_floor.jpg" title="The first floor, with only the second floor skirt up"&gt;&lt;img alt="" src="https://eric.van.al/media/second_floor/thumbnails/_x320/no_second_floor.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I lived in this room for four years. I built it at the beginning of my second year, and aside from a few ups and downs, it remained there until I graduated.&lt;/p&gt;
+&lt;p&gt;Eventually, the house manager did find it during a routine inspection my senior year. I knew that the inspection was happening, but I hadn't bothered to take it down because I wanted to see what would happen.&lt;/p&gt;
+&lt;p&gt;The house manager wasn't too thrilled with my loft. He told me that of all the crazy dorm room mods he's seen, this one takes the cake. He made me read aloud the loft building rules because this violated every one of them. He said he would have an electrician in the next day to unwire it and take it down. That never happened and it stayed up the rest of the year. It eventually got torn down when I graduated and somebody else moved in.&lt;/p&gt;</content><category term="hardware"></category></entry><entry><title>2013 East Side Party</title><link href="https://eric.van.al/2013-east-side-party.html" rel="alternate"></link><published>2013-08-25T00:00:00-04:00</published><updated>2013-08-25T00:00:00-04:00</updated><author><name></name></author><id>tag:eric.van.al,2013-08-25:/2013-east-side-party.html</id><summary type="html">&lt;p&gt;My friend Zach and I put lights on the Rush Fort at the &lt;a href="http://eastcamp.us{static}/media/albums/view.py?path=REX/2013"&gt;East Side party&lt;/a&gt; in August 2013.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/lights/2013/lux_wiring.jpg" title="Some lux wiring"&gt;&lt;img alt="" src="https://eric.van.al/media/lights/2013/thumbnails/_x320/lux_wiring.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/lights/2013/rush_fort_night.jpg" title="Lights at night"&gt;&lt;img alt="" src="https://eric.van.al/media/lights/2013/thumbnails/_x320/rush_fort_night.jpg"&gt;&lt;/a&gt;
+</summary><content type="html">&lt;p&gt;My friend Zach and I put lights on the Rush Fort at the &lt;a href="http://eastcamp.us{static}/media/albums/view.py?path=REX/2013"&gt;East Side party&lt;/a&gt; in August 2013.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/lights/2013/lux_wiring.jpg" title="Some lux wiring"&gt;&lt;img alt="" src="https://eric.van.al/media/lights/2013/thumbnails/_x320/lux_wiring.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/lights/2013/rush_fort_night.jpg" title="Lights at night"&gt;&lt;img alt="" src="https://eric.van.al/media/lights/2013/thumbnails/_x320/rush_fort_night.jpg"&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/ervanalb/lux"&gt;lux&lt;/a&gt; hardware powered all of the strips. Back then, it used CAN to send data to all of the light strips. Trying to get CAN to transmit reliably over long distances, especially when routed near noise sources like high power audio, was miserable. The difficulties encountered in 2013 led to replacing CAN with a speak-when-spoken-to half-duplex serial protocol (RS-422) which has been much more reliable.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://radiance.video"&gt;radiance&lt;/a&gt; (back then it was called &lt;em&gt;beat-off&lt;/em&gt;) to design patterns to show on them. It had manual tempo synchronization, and only a handful of pre-saved patterns. It was written in pygame and was much closer to the paradigm of seq24 than modern radiance (see 2012 section below.)&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/lights/2013/more_lux_wiring.jpg" title="More lux wiring"&gt;&lt;img alt="" src="https://eric.van.al/media/lights/2013/thumbnails/_x320/more_lux_wiring.jpg"&gt;&lt;/a&gt;
+&lt;a href="https://eric.van.al/media/lights/2013/rush_fort_day.jpg" title="Daytime lights"&gt;&lt;img alt="" src="https://eric.van.al/media/lights/2013/thumbnails/_x320/rush_fort_day.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;2011&lt;/h2&gt;
+&lt;p&gt;This was the second time I helped do lighting for the East Side party, and the first time using lux / radiance.
+The first time was in 2012. I was working in San Francisco for the summer, and one of my fellow interns was sent to China
+to do some manufacturing engineering. He came back with tons of cheap LED strips.&lt;/p&gt;
+&lt;p&gt;I threw together some control boards that took in MIDI control signals, and output patterns to the lights.
+I also added a MIDI clock out feature to &lt;a href="https://mixxx.org"&gt;MIXXX&lt;/a&gt;, which my friend Gabe would be using to DJ the party.&lt;/p&gt;
+&lt;p&gt;The actual patterns were constructed using a MIDI keyboard and &lt;a href="http://www.filter24.org/seq24/"&gt;seq24&lt;/a&gt; to "play" the lights.
+Different notes corresponded to different colors, and different octaves were different effects.
+The MIDI clock signal kept the sequencer in time with the music.&lt;/p&gt;
+&lt;p&gt;Overall, this party went very well, and while the size of the setup increased and technical improvements were made, the smoothness and successful execution of the operation wasn't matched until &lt;a href="https://eric.van.al/2016-east-side-party.html"&gt;2016&lt;/a&gt;.&lt;/p&gt;</content><category term="radiance"></category><category term="lights"></category><category term="hardware"></category><category term="software"></category></entry><entry><title>3D printing Schlage Primus keys</title><link href="https://eric.van.al/3d-printing-schlage-primus-keys.html" rel="alternate"></link><published>2013-08-03T00:00:00-04:00</published><updated>2013-08-03T00:00:00-04:00</updated><author><name></name></author><id>tag:eric.van.al,2013-08-03:/3d-printing-schlage-primus-keys.html</id><summary type="html">&lt;p&gt;I worked on a project relating to 3D printing keys. You can watch the Defcon talk &lt;a href="https://www.youtube.com/watch?v=b7v84Ch8sR0"&gt;here&lt;/a&gt; or grab the slides and code &lt;a href="https://media.defcon.org/DEF%20CON%2021/DEF%20CON%2021%20presentations/Lawrence%20and%20Panel-Updated/"&gt;here&lt;/a&gt;. It &lt;a href="http://www.forbes.com/sites/andygreenberg/2013/08/03/mit-students-release-program-to-3d-print-high-security-keys/#209ff7b2da5d"&gt;got&lt;/a&gt; &lt;a href="https://www.usenix.org/system/files/conference/woot15/woot15-paper-burgess.pdf"&gt;some&lt;/a&gt; &lt;a href="https://i.materialise.com/blog/i-materialise-does-not-support-3d-printing-high-security-keys/"&gt;press&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/physec/3dprint.jpg" title="3D-printed Primus keys"&gt;&lt;img alt="" src="https://eric.van.al/media/physec/thumbnails/_x320/3dprint.jpg"&gt;&lt;/a&gt;
+</summary><content type="html">&lt;p&gt;I worked on a project relating to 3D printing keys. You can watch the Defcon talk &lt;a href="https://www.youtube.com/watch?v=b7v84Ch8sR0"&gt;here&lt;/a&gt; or grab the slides and code &lt;a href="https://media.defcon.org/DEF%20CON%2021/DEF%20CON%2021%20presentations/Lawrence%20and%20Panel-Updated/"&gt;here&lt;/a&gt;. It &lt;a href="http://www.forbes.com/sites/andygreenberg/2013/08/03/mit-students-release-program-to-3d-print-high-security-keys/#209ff7b2da5d"&gt;got&lt;/a&gt; &lt;a href="https://www.usenix.org/system/files/conference/woot15/woot15-paper-burgess.pdf"&gt;some&lt;/a&gt; &lt;a href="https://i.materialise.com/blog/i-materialise-does-not-support-3d-printing-high-security-keys/"&gt;press&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://eric.van.al/media/physec/3dprint.jpg" title="3D-printed Primus keys"&gt;&lt;img alt="" src="https://eric.van.al/media/physec/thumbnails/_x320/3dprint.jpg"&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;iframe id="ytplayer" type="text/html" width="640" height="360"
+  src="https://www.youtube.com/embed/b7v84Ch8sR0"
+  frameborder="0"&gt;&lt;/iframe&gt;</content><category term="hardware"></category><category term="security"></category><category term="defcon"></category></entry><entry><title>Physical security whitepapers</title><link href="https://eric.van.al/physical-security-whitepapers.html" rel="alternate"></link><published>2013-01-01T00:00:00-05:00</published><updated>2013-01-01T00:00:00-05:00</updated><author><name></name></author><id>tag:eric.van.al,2013-01-01:/physical-security-whitepapers.html</id><summary type="html">&lt;p&gt;I am quite interested in physical security and have written a handful of literature on the topic.
+</summary><content type="html">&lt;p&gt;I am quite interested in physical security and have written a handful of literature on the topic.
+&lt;/p&gt;
+&lt;h2&gt;Contextual Physical Security&lt;/h2&gt;
+&lt;p&gt;I co-authored a paper about defeating key systems. You can find it &lt;a href="https://eric.van.al/media/physec/ContextualPhysicalSecurity.pdf"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;One Page Guide to Lockpicking&lt;/h2&gt;
+&lt;p&gt;The &lt;a href="http://www.capricorn.org/~akira/home/lockpick/"&gt;MIT Guide to Lockpicking&lt;/a&gt; is a great resource, but can be overwhelming to beginners. If you're new to lockpicking, check out my &lt;a href="https://eric.van.al/media/physec/onepage.pdf"&gt;one-page guide&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Splash Class&lt;/h2&gt;
+&lt;p&gt;I &lt;a href="https://esp.mit.edu/learn/teachers/ervanalb/bio.html"&gt;taught a Splash class&lt;/a&gt; on physical security. You can find the slide deck &lt;a href="https://eric.van.al/media/physec/SplashPhysicalSecurity.pdf"&gt;here&lt;/a&gt;.&lt;/p&gt;</content><category term="security"></category></entry></feed>

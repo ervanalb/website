@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <title>ervanalb/blog/ffedit</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" \>
+        <link href="https://eric.van.al/theme/css/main.css" type="text/css" rel="stylesheet" />
+        <link href="https://eric.van.al/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="ervanalb/blog Full Atom Feed" />
+        <link href="https://eric.van.al/feeds/projects.atom.xml" type="application/atom+xml" rel="alternate" title="ervanalb/blog Categories Atom Feed" />
+
+
+
+
+    <meta name="tags" content="software" />
+
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="https://eric.van.al/">ervanalb/blog</a>/<strong>ffedit</strong></h1>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <header>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2019-01-01T00:00:00-05:00">
+      01 January 2019
+    </time>
+    <div class="category">
+        Category: <a href="https://eric.van.al/category/projects.html">Projects</a>
+    </div>
+    <div class="tags">
+        Tags:
+            <a href="https://eric.van.al/tag/software.html">software</a>
+    </div>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <p>ffedit is a command-line tool for video editing.
+ffmpeg can cut and splice together video clips, but the syntax for doing so quickly gets out of control for large numbers of clips.
+ffedit takes in a YAML file that describes which parts of which clips to combine, any filters that should be applied to them,
+and invokes ffmpeg to produce the desired output.
+You can look at usage and download it from <a href="https://github.com/ervanalb/ffedit">Github</a>.</p>
+<p>
+With ffedit, concatenating video files is as simple as:</p>
+<div class="highlight"><pre><span></span><span class="nt">all</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">a.mkv</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">b.mkv</span>
+</pre></div>
+
+
+<p>but it supports advanced usage, such as:</p>
+<div class="highlight"><pre><span></span><span class="nt">all</span><span class="p">:</span>
+  <span class="nt">concat</span><span class="p">:</span>
+    <span class="nt">fadein</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>  <span class="c1"># fade in over 2 seconds</span>
+    <span class="nt">fadeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span> <span class="c1"># fade out over 2 seconds</span>
+    <span class="nt">inputs</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">clip</span><span class="p">:</span>
+          <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">a.mkv</span>
+          <span class="nt">start</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1:20</span>  <span class="c1"># Start 1 minute 20 seconds in</span>
+          <span class="nt">duration</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">15</span> <span class="c1"># Only take 15 seconds</span>
+      <span class="p p-Indicator">-</span> <span class="nt">clip</span><span class="p">:</span>
+          <span class="nt">file</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">b.mkv</span>
+          <span class="nt">speed</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2x</span> <span class="c1"># speed up video</span>
+          <span class="nt">tempo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2x</span> <span class="c1"># speed up audio</span>
+</pre></div>
+
+
+<p>ffedit was largely written on a plane ride back from <a href="https://eric.van.al/canyoning-and-diving-in-australia.html">Australia</a>
+and was used to edit the video from that trip (and subsequent trips.)
+Before writing ffedit, I was using a BASH script / Makefile to invoke ffmpeg.</p>
+  </div><!-- /.entry-content -->
+<p class="paginator">
+        &laquo; <a href="https://eric.van.al/promap.html">promap</a>
+    |
+        <a href="https://eric.van.al/canyoning-and-diving-in-australia.html">Canyoning and Diving in Australia</a> &raquo;
+</p>
+</section>
+</body>
+</html>
